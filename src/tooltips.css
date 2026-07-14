@@ -1,0 +1,264 @@
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.help {
+  position: relative;
+  width: 17px;
+  height: 17px;
+  border: 1px solid #9eaaa5;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  color: var(--green);
+  background: #f6f9f7;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  cursor: help;
+  outline: none;
+}
+
+.help > span {
+  position: absolute;
+  z-index: 20;
+  left: 50%;
+  bottom: calc(100% + 9px);
+  width: 245px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.45;
+  box-shadow: 0 8px 24px rgba(16, 36, 31, 0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 5px);
+  transition: 0.15s;
+  pointer-events: none;
+}
+
+.help > span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  border: 6px solid transparent;
+  border-top-color: var(--ink);
+  transform: translateX(-50%);
+}
+
+.help:hover > span,
+.help:focus > span,
+.help:focus-visible > span {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
+}
+
+.analysis-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.analysis-card select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fbfbf9;
+  padding: 11px 12px;
+  color: var(--ink);
+}
+
+.view-switch {
+  display: flex;
+  gap: 6px;
+  margin: -8px 0 18px;
+}
+
+.view-switch button {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.view-switch button.active {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+
+.samples button.free-test {
+  border-color: var(--green);
+  color: var(--green);
+  font-weight: 800;
+}
+
+.samples button.free-test:hover {
+  background: #e4f2eb;
+}
+
+.view-requester .result-panel,
+.view-analyst .form-panel {
+  display: none;
+}
+
+.view-requester,
+.view-analyst {
+  grid-template-columns: minmax(0, 760px);
+  justify-content: center;
+}
+
+.confirmation {
+  min-height: 460px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 35px;
+}
+
+.confirmation > span {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  margin-bottom: 22px;
+  background: #e1f1e9;
+  color: var(--green);
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.confirmation h3 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.confirmation > p:not(.eyebrow) {
+  max-width: 470px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.confirmation > div {
+  width: 100%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 18px 0 24px;
+  padding: 17px;
+  border-radius: 11px;
+  background: #f2f6f3;
+}
+
+.confirmation > div small {
+  color: var(--muted);
+  letter-spacing: 0.13em;
+}
+
+.confirmation > div b {
+  font-size: 20px;
+  letter-spacing: 0.04em;
+}
+
+.attention-block {
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.attention-block > small {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.attention-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+  border-radius: 9px;
+  background: #f5f7f4;
+}
+
+.attention-item + .attention-item {
+  margin-top: 8px;
+}
+
+.attention-item span {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.attention-item p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.urgency-rule {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+  padding: 16px;
+  border: 1px solid #e3cf9d;
+  border-left: 4px solid #c38a16;
+  border-radius: 11px;
+  background: #fff8e8;
+}
+
+.urgency-rule small {
+  color: #805b12;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.urgency-rule p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (max-width: 520px) {
+  .help > span {
+    left: 0;
+    width: min(245px, 75vw);
+    transform: translate(0, 5px);
+  }
+
+  .help:hover > span,
+  .help:focus > span,
+  .help:focus-visible > span {
+    transform: translate(0, 0);
+  }
+
+  .help > span::after {
+    left: 8px;
+  }
+}
