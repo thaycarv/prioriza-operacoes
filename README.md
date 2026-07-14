@@ -2,7 +2,7 @@
 
 Protótipo funcional de apoio à entrada, validação, encaminhamento e priorização de demandas operacionais.
 
-**[Acessar demonstração funcional](https://priorizacao-demandas.polochian.chatgpt.site)**
+**[Acessar demonstração funcional](https://thaycarv.github.io/prioriza-operacoes/)**
 
 > V1 testada com cenários simulados. O protótipo não foi implantado ou validado em ambiente produtivo.
 
@@ -118,5 +118,4 @@ Esta versão não possui autenticação real, banco de dados, integrações corp
 - [`docs/matriz-e-regras.md`](docs/matriz-e-regras.md): critérios, fórmula e regras de exceção.
 - [`docs/testes-v1.md`](docs/testes-v1.md): cenários e aprendizados da V1.
 - [`docs/governanca-e-ia.md`](docs/governanca-e-ia.md): limites da automação e responsabilidades.
-- [`prototipo/`](prototipo/): código de referência da interface demonstrativa.
-
+- [`src/`](src/): implementação da interface demonstrativa.
