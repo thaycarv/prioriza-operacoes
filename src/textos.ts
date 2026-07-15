@@ -13,61 +13,64 @@ export const textos = {
     titulo: "Demandas operacionais,",
     destaque: "priorizadas com critérios e evidências.",
     descricao:
-      "Sistema de apoio à entrada, validação, encaminhamento e priorização de demandas em uma operação de suporte de tecnologia B2B. A IA é proposta como apoio à análise — não como responsável pela decisão final.",
+      "Sistema de apoio à entrada, validação, encaminhamento e priorização de demandas em uma operação simulada de suporte de tecnologia B2B. A IA é proposta como apoio à análise, não como responsável pela decisão final.",
   },
 
   principios: [
     {
       numero: "01",
-      titulo: "Processo antes da tecnologia",
-      descricao: "As regras de negócio orientam o funcionamento da solução.",
+      titulo: "Entrada estruturada",
+      descricao:
+        "Demandas de clientes, áreas internas e sistemas de monitoramento seguem critérios mínimos antes do encaminhamento.",
     },
     {
       numero: "02",
-      titulo: "Exceções tratadas com segurança",
+      titulo: "Exceções protegidas",
       descricao:
-        "Informações incompletas retornam para correção; indícios críticos acionam a triagem humana.",
+        "Informações incompletas retornam para correção, enquanto indícios críticos acionam a triagem humana.",
     },
     {
       numero: "03",
-      titulo: "Decisões rastreáveis",
-      descricao: "Pontuações justificadas, conferidas e passíveis de revisão.",
+      titulo: "Decisão rastreável",
+      descricao:
+        "A pontuação é justificada e a classificação final permanece sob responsabilidade humana.",
     },
   ],
 
   demonstracao: {
     categoria: "DEMONSTRAÇÃO FUNCIONAL",
-    titulo: "Teste uma demanda",
+    titulo: "Simule uma demanda operacional",
   },
 
   case: {
-    categoria: "MINI CASE",
+    categoria: "CONTEXTO DO CASE",
     tituloLinha1: "De demandas dispersas",
     tituloLinha2: "a um processo claro e auditável.",
+
     etapas: [
       {
         numero: "01",
         titulo: "Contexto",
         descricao:
-          "Uma operação de suporte de tecnologia B2B recebe demandas de clientes, áreas internas e sistemas de monitoramento.",
+          "Uma operação simulada de suporte de tecnologia B2B recebe demandas de clientes, áreas internas e sistemas de monitoramento.",
       },
       {
         numero: "02",
         titulo: "Problema",
         descricao:
-          "As demandas chegavam como urgentes, por diferentes canais, com dados incompletos e sem critérios comuns de encaminhamento.",
+          "As solicitações chegam por diferentes origens, frequentemente classificadas como urgentes, com informações incompletas e sem critérios comuns.",
       },
       {
         numero: "03",
-        titulo: "Modelagem e teste",
+        titulo: "Solução modelada",
         descricao:
-          "Foram estruturadas informações mínimas, quatro rotas e uma matriz ponderada. Quatro cenários simulados orientaram o redesenho da V1.",
+          "O fluxo valida os dados mínimos, direciona cada demanda para uma das quatro rotas e aplica uma matriz ponderada quando a pontuação é adequada.",
       },
       {
         numero: "04",
-        titulo: "Governança",
+        titulo: "Teste e governança",
         descricao:
-          "A IA sinaliza lacunas e indícios. O encaminhamento e a decisão final permanecem sob responsabilidade humana.",
+          "Quatro cenários simulados orientaram o redesenho da V1. A IA sinaliza lacunas e indícios, enquanto a decisão permanece humana.",
       },
     ],
   },
@@ -75,9 +78,10 @@ export const textos = {
   rodape: {
     titulo: "Projeto autoral de Operações e Processos",
     observacao:
-      "Protótipo funcional testado com cenários simulados — sem implantação ou validação em ambiente produtivo.",
+      "Protótipo funcional desenvolvido e testado com cenários simulados — sem implantação ou validação em ambiente produtivo.",
     competencias:
       "Modelagem de processos · Melhoria contínua · Priorização · SLAs · IA responsável",
   },
 } as const;
 
+    
