@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import "./tooltips.css";
 import "./styles.css";
+import { textos } from "./textos";
 
 type Form = {
   title: string; origin: string; kind: string; perceived: string; description: string;
@@ -71,14 +72,14 @@ export default function App(){
   const routeLabel=result.route==="score"?"Demanda elegível":result.route==="return"?"Devolver para complementação":result.route==="triage"?"Triagem humana imediata":"Direcionar ao backlog";
 
   return <main>
-    <header className="topbar"><div className="brand"><span className="mark">P</span><div><b>Prioriza</b><small>Operações, processos e IA responsável</small></div></div><span className="prototype">V1 · TESTADA EM CENÁRIOS SIMULADOS</span></header>
+    <header className="topbar"><div className="brand"><span className="mark">P</span><div><b>{textos.marca.nome}</b><small>{textos.marca.assinatura}</small></div></div><span className="prototype">{textos.marca.versao}</span></header>
     <section className="hero">
-      <div><p className="eyebrow">PROTÓTIPO DE APOIO À DECISÃO</p><h1>Demandas operacionais,<br/><em>priorizadas com critérios e evidências.</em></h1><p className="lede">Validação das informações, encaminhamento por regras, pontuação ponderada e decisão humana. A IA é proposta como apoio à análise — não como responsável pela decisão final.</p></div>
-      <div className="principles"><span>01</span><p><b>Processo antes da tecnologia</b><br/>As regras de negócio orientam o funcionamento da solução.</p><span>02</span><p><b>Exceções tratadas com segurança</b><br/>Informações incompletas retornam para correção; indícios críticos acionam a triagem humana.</p><span>03</span><p><b>Decisões rastreáveis</b><br/>Pontuações justificadas, conferidas e passíveis de revisão.</p></div>
+      <div><p className="eyebrow">{textos.apresentacao.categoria}</p><h1>{textos.apresentacao.titulo}<br/><em>{textos.apresentacao.destaque}</em></h1><p className="lede">{textos.apresentacao.descricao}</p></div>
+      <div className="principles">{textos.principios.map(item=>[<span key={`${item.numero}-numero`}>{item.numero}</span>,<p key={`${item.numero}-texto`}><b>{item.titulo}</b><br/>{item.descricao}</p>])}</div>
     </section>
 
     <section className="workspace">
-      <div className="section-head"><div><p className="eyebrow">DEMONSTRAÇÃO FUNCIONAL</p><h2>Teste uma demanda</h2></div><div className="samples">{Object.keys(samples).map(k=><button key={k} onClick={()=>{setForm(samples[k]);setAnalyzed(true);setReviewed(false);setProtocol("")}} className={form.title===samples[k].title?"active":""}>Cenário {k}</button>)}<button className="free-test" onClick={startFreeTest}>+ Teste livre</button></div></div>
+      <div className="section-head"><div><p className="eyebrow">{textos.demonstracao.categoria}</p><h2>{textos.demonstracao.titulo}</h2></div><div className="samples">{Object.keys(samples).map(k=><button key={k} onClick={()=>{setForm(samples[k]);setAnalyzed(true);setReviewed(false);setProtocol("")}} className={form.title===samples[k].title?"active":""}>Cenário {k}</button>)}<button className="free-test" onClick={startFreeTest}>+ Teste livre</button></div></div>
       <div className="view-switch" aria-label="Alternar perfil de visualização"><button className={view==="requester"?"active":""} onClick={()=>setView("requester")}>Visão do solicitante</button><button className={view==="analyst"?"active":""} onClick={()=>setView("analyst")}>Visão da triagem</button></div>
       <div className={`grid view-${view}`}>
         <form className="panel form-panel" onSubmit={e=>{e.preventDefault();setAnalyzed(true);setProtocol(`OP-${new Date().getFullYear()}-${String(Date.now()).slice(-6)}`)}}>
@@ -115,7 +116,7 @@ export default function App(){
       </div>
     </section>
 
-    <section className="case"><div><p className="eyebrow">MINI CASE</p><h2>Da entrada pouco estruturada<br/>a um processo claro e auditável.</h2></div><div className="case-grid"><article><span>01</span><b>Diagnóstico</b><p>Demandas de diferentes origens eram apresentadas como urgentes, sem critérios comuns de entrada, encaminhamento e priorização.</p></article><article><span>02</span><b>Modelagem</b><p>Foi estruturado um processo com informações mínimas, quatro rotas de encaminhamento, matriz ponderada, tratamento de exceções e revisão humana.</p></article><article><span>03</span><b>Teste e melhoria</b><p>A primeira matriz foi submetida a quatro cenários. Os testes revelaram limites no uso de um score universal e orientaram o redesenho do fluxo.</p></article><article><span>04</span><b>Governança</b><p>A solução prevê o uso de IA para identificar informações ausentes e sinalizar indícios críticos. O encaminhamento e a decisão final permanecem sob responsabilidade humana.</p></article></div></section>
-    <footer><p><b>Projeto autoral de Operações e Processos</b><br/>V1 testada com cenários simulados — sem implantação ou validação em ambiente produtivo.</p><p>Modelagem de processos · Melhoria contínua · Priorização · SLAs · IA responsável</p></footer>
+    <section className="case"><div><p className="eyebrow">{textos.case.categoria}</p><h2>{textos.case.tituloLinha1}<br/>{textos.case.tituloLinha2}</h2></div><div className="case-grid">{textos.case.etapas.map(etapa=><article key={etapa.numero}><span>{etapa.numero}</span><b>{etapa.titulo}</b><p>{etapa.descricao}</p></article>)}</div></section>
+    <footer><p><b>{textos.rodape.titulo}</b><br/>{textos.rodape.observacao}</p><p>{textos.rodape.competencias}</p></footer>
   </main>
 }
