@@ -2,7 +2,7 @@
 
 Protótipo funcional de apoio à entrada, validação, encaminhamento e priorização de demandas operacionais.
 
-**[Acessar demonstração funcional](https://thaycarv.github.io/prioriza-operacoes/)**
+**[Acessar demonstração](https://thaycarv.github.io/prioriza-operacoes/)**
 
 > V1 testada com cenários simulados. O protótipo não foi implantado ou validado em ambiente produtivo.
 
