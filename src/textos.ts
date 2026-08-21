@@ -1,87 +1,85 @@
-// EDITE SOMENTE OS TEXTOS ENTRE ASPAS.
-// Este arquivo não contém regras de pontuação nem cálculos do protótipo.
+// Textos institucionais e operacionais do Prioriza
+// Tom equilibrado: profissional, claro e objetivo, sem excesso de informalidade e sem jargões desnecessários.
 
 export const textos = {
   marca: {
     nome: "Prioriza",
-    assinatura: "Operações, processos e IA responsável",
-    versao: "V1 · TESTADA EM CENÁRIOS SIMULADOS",
+    assinatura: "Gestão e Triagem de Demandas Operacionais",
+    versao: "Protótipo Operacional",
   },
 
   apresentacao: {
-    categoria: "PROTÓTIPO FUNCIONAL DE SOFTWARE WEB",
-    titulo: "Demandas operacionais,",
-    destaque: "priorizadas com critérios e evidências.",
+    categoria: "GESTÃO DE OPERAÇÕES E PROCESSOS",
+    titulo: "Triagem estruturada de demandas,",
+    destaque: "com critérios objetivos e decisão humana.",
     descricao:
-      "Sistema de apoio à entrada, validação, encaminhamento e priorização de demandas em uma operação simulada de suporte de tecnologia B2B. A IA é proposta como apoio à análise, não como responsável pela decisão final.",
+      "Fluxo para qualificar, organizar e direcionar solicitações em operações de suporte e tecnologia. O sistema identifica o impacto real no processo, aponta informações pendentes e orienta o encaminhamento adequado com apoio analítico.",
   },
 
   principios: [
     {
       numero: "01",
-      titulo: "Entrada estruturada",
+      titulo: "Entrada padronizada",
       descricao:
-        "Demandas de clientes, áreas internas e sistemas de monitoramento seguem critérios mínimos antes do encaminhamento.",
+        "Registro baseado em fatos observáveis e volume confirmado de usuários afetados, evitando suposições preliminares.",
     },
     {
       numero: "02",
-      titulo: "Exceções protegidas",
+      titulo: "Tratamento de pendências",
       descricao:
-        "Informações incompletas retornam para correção, enquanto indícios críticos acionam a triagem humana.",
+        "Demandas com dados incompletos retornam com perguntas objetivas para complementação pelo solicitante.",
     },
     {
       numero: "03",
-      titulo: "Decisão rastreável",
+      titulo: "Decisão fundamentada",
       descricao:
-        "A pontuação é justificada e a classificação final permanece sob responsabilidade humana.",
+        "O cálculo ponderado organiza a fila de atendimento, cabendo à equipe de operações a avaliação final.",
     },
   ],
 
   demonstracao: {
-    categoria: "DEMONSTRAÇÃO FUNCIONAL",
-    titulo: "Simule uma demanda operacional",
+    categoria: "SIMULAÇÃO DO PROCESSO",
+    titulo: "Simulação de Cenários Operacionais",
   },
 
   case: {
-    categoria: "CONTEXTO DO CASE",
-    tituloLinha1: "De demandas dispersas",
-    tituloLinha2: "a um processo claro e auditável.",
+    categoria: "METODOLOGIA E GOVERNANÇA",
+    tituloLinha1: "Por que matrizes universais de pontuação",
+    tituloLinha2: "apresentam limitações na operação?",
 
     etapas: [
       {
         numero: "01",
-        titulo: "Contexto",
+        titulo: "Dispersão de solicitações",
         descricao:
-          "Uma operação simulada de suporte de tecnologia B2B recebe demandas de clientes, áreas internas e sistemas de monitoramento.",
+          "Demandas chegam por múltiplos canais com diferentes níveis de detalhamento, frequentemente classificadas como urgentes sem fundamentação.",
       },
       {
         numero: "02",
-        titulo: "Problema",
+        titulo: "Limitações da nota única",
         descricao:
-          "As solicitações chegam por diferentes origens, frequentemente classificadas como urgentes, com informações incompletas e sem critérios comuns.",
+          "Atribuir uma pontuação automática a qualquer solicitação pode induzir a erros em pedidos incompletos e mascarar sinais críticos.",
       },
       {
         numero: "03",
-        titulo: "Solução modelada",
+        titulo: "Quatro rotas de encaminhamento",
         descricao:
-          "O fluxo valida os dados mínimos, direciona cada demanda para uma das quatro rotas e aplica uma matriz ponderada quando a pontuação é adequada.",
+          "O modelo adota quatro caminhos distintos: fila operacional com score, retorno para complementação, triagem imediata para riscos e backlog para melhorias.",
       },
       {
         numero: "04",
-        titulo: "Teste e governança",
+        titulo: "Tecnologia como suporte analítico",
         descricao:
-          "Quatro cenários simulados orientaram o redesenho da V1. A IA sinaliza lacunas e indícios, enquanto a decisão permanece humana.",
+          "Modelos de suporte auxiliam na síntese de evidências e identificação de lacunas, mantendo a responsabilidade da decisão sob controle humano.",
       },
     ],
   },
 
   rodape: {
-    titulo: "Projeto autoral de Operações e Processos",
+    titulo: "Prioriza: Projeto de Operações e Melhoria Contínua",
     observacao:
-      "Protótipo funcional desenvolvido e testado com cenários simulados — sem implantação ou validação em ambiente produtivo.",
+      "Protótipo desenvolvido para demonstrar fluxos de triagem operacional com suporte de modelos analíticos.",
     competencias:
-      "Modelagem de processos · Melhoria contínua · Priorização · SLAs · IA responsável",
+      "Modelagem de processos, Gestão de chamados, Análise de impacto, Governança operacional",
   },
 } as const;
-
-    
