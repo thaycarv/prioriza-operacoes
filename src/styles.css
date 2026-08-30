@@ -14,6 +14,38 @@
   --purple: #6b21a8;
   --radius: 14px;
   --shadow: 0 8px 24px rgba(15, 31, 27, 0.05);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+  0% { opacity: 0; transform: scale(0.98) translateY(6px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.main-content, .card-container, .triage-panel {
+  animation: fadeInScale 280ms var(--ease-spring);
+}
+
+.card, .triage-card, .metric-card {
+  transition: transform 220ms var(--ease-spring), box-shadow 220ms var(--ease-spring), border-color 200ms ease;
+}
+
+.card:hover, .triage-card:hover, .metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(15, 31, 27, 0.09);
+}
+
+button, .btn, .route-button {
+  transition: transform 180ms var(--ease-spring), background-color 180ms ease, box-shadow 180ms ease;
+}
+
+button:hover, .btn:hover, .route-button:hover {
+  transform: translateY(-1px);
+}
+
+button:active, .btn:active, .route-button:active {
+  transform: translateY(1px) scale(0.98);
 }
 
 * {
