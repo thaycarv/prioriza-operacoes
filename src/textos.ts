@@ -9,11 +9,11 @@ export const textos = {
   },
 
   apresentacao: {
-    categoria: "GESTÃO DE OPERAÇÕES E PROCESSOS EM SAÚDE & FARMA",
-    titulo: "Triagem estruturada de solicitações operacionais e assistenciais,",
-    destaque: "com critérios objetivos, segurança do paciente e decisão humana.",
+    categoria: "GESTÃO DE OPERAÇÕES E PROCESSOS EM SAÚDE",
+    titulo: "Triagem de solicitações operacionais e assistenciais",
+    destaque: "como apoio à decisão humana.",
     descricao:
-      "Fluxo para qualificar, organizar e direcionar demandas em hospitais, operadoras de saúde, redes de farmácias e suporte regulatório. O sistema identifica o impacto real no paciente e nos processos, aponta pendências de laudos e orienta o encaminhamento adequado com apoio analítico e governança ética.",
+      "Fluxo para qualificar, organizar e direcionar demandas. O sistema identifica o impacto real, aponta pendências e orienta o caminho mais adequado.",
   },
 
   principios: [
@@ -52,13 +52,13 @@ export const textos = {
         numero: "01",
         titulo: "Dispersão de solicitações",
         descricao:
-          "Demandas chegam por múltiplos canais (consultórios, farmácias, unidades assistenciais) frequentemente marcadas como urgentes sem fundamentação técnica.",
+          "Demandas chegam por múltiplos canais (consultórios, farmácias, unidades assistenciais) frequentemente marcadas de forma incorreta e sem fundamentação técnica.",
       },
       {
         numero: "02",
         titulo: "Limitações da nota única",
         descricao:
-          "Atribuir um score cego a pedidos incompletos pode induzir a erros de auditoria, atrasar emergências e mascarar sinais críticos de risco ao paciente.",
+          "Atribuir um score cego a pedidos incompletos pode induzir a erros de auditoria, atrasar emergências e mascarar sinais críticos de risco à operação.",
       },
       {
         numero: "03",
@@ -79,7 +79,6 @@ export const textos = {
     titulo: "Prioriza: Projeto de Operações e Melhoria Contínua em Saúde",
     observacao:
       "Protótipo desenvolvido para demonstrar fluxos de triagem e regulação operacional com suporte de modelos analíticos.",
-    competencias:
-      "Regulação em saúde, Triagem de demandas, Gestão de processos hospitalares e farmacêuticos, Resolução de bloqueios, Human-in-the-Loop",
+    competencias: "",
   },
 } as const;
