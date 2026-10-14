@@ -68,7 +68,7 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
               Título da demanda
             </HelpLabel>
             <input
-              placeholder="Ex: Falha no checkout ao finalizar compra"
+              placeholder="Ex: Bloqueio na dispensação de medicamento na farmácia"
               value={form.title}
               onChange={(e) => onChange("title", e.target.value)}
             />
@@ -76,16 +76,25 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
 
           <div className="cols">
             <label>
-              <HelpLabel help="Indique o canal ou origem da demanda: cliente final, área interna ou alerta automático.">
+              <HelpLabel help="Indique o canal ou origem da demanda: paciente, consultório, farmácia ou alerta do sistema.">
                 Origem do relato
               </HelpLabel>
               <select
                 value={form.origin}
                 onChange={(e) => onChange("origin", e.target.value)}
               >
+                <option>Paciente / Usuário</option>
+                <option>Consultório / Unidade Assistencial</option>
+                <option>Farmácia / Farmacovigilância</option>
+                <option>Área interna / Regulação</option>
+                <option>Sistema / Monitoramento</option>
                 <option>Cliente</option>
                 <option>Área interna</option>
                 <option>Sistema/monitoramento</option>
+                <option>Farmácia Hospitalar</option>
+                <option>Consultório Credenciado</option>
+                <option>Coordenação Clínica</option>
+                <option>Vigilância / Enfermagem</option>
               </select>
             </label>
 
@@ -97,10 +106,13 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
                 value={form.kind}
                 onChange={(e) => onChange("kind", e.target.value)}
               >
-                <option>Incidente</option>
-                <option>Possível incidente</option>
+                <option>Incidente Crítico</option>
+                <option>Possível incidente sanitário</option>
+                <option>Regulação / Guia</option>
                 <option>Solicitação operacional</option>
                 <option>Melhoria planejada</option>
+                <option>Incidente</option>
+                <option>Possível incidente</option>
               </select>
             </label>
           </div>

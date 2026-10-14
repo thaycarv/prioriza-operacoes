@@ -1,93 +1,59 @@
-# Prioriza: Gestão e Triagem de Demandas Operacionais
+# Prioriza • Triagem Inteligente e Qualificação de Demandas
 
-O **Prioriza** é um protótipo funcional para organização, validação e direcionamento de solicitações em operações de suporte e tecnologia. O projeto transforma relatos dispersos em fluxos estruturados, com critérios objetivos de avaliação, tratamento de exceções e decisão humana fundamentada.
+O **Prioriza** é uma plataforma de triagem operacional desenhada para qualificar, organizar e direcionar fluxos de atendimento em setores de alta complexidade, como saúde, educação, impacto social e serviços públicos.
 
-Consulte o [Catálogo de Melhorias](MELHORIAS.md) para detalhes da evolução do projeto.
-
----
-
-## 1. O Cenário Operacional
-
-Em rotinas de suporte e operações, solicitações costumam chegar por múltiplos canais sem padronização. Muitas demandas são registradas como urgentes sem informações mínimas que permitam mensurar impacto real, alcance ou dependências técnicas.
-
-Esse contexto gera:
-* Disputas sobre a prioridade de atendimento;
-* Retrabalho da equipe na coleta tardia de informações;
-* Risco de subestimar incidentes críticos descritos de forma superficial;
-* Decisões orientadas apenas pela percepção subjetiva de quem solicita.
+O projeto elimina o gargalo das filas desordenadas, onde quase tudo chega rotulado como urgente. Utilizando Inteligência Artificial como suporte analítico à decisão humana (Human-in-the-Loop), o sistema analisa o contexto da solicitação, avalia o nível real de criticidade e indica a rota mais eficiente de resolução.
 
 ---
 
-## 2. Quatro Rotas de Encaminhamento
+## 🎯 O Desafio Operacional
+Em operações de atendimento e serviços essenciais, pedidos e chamados chegam diariamente por múltiplos canais (mensagens, formulários e e-mails). Sem um método inteligente de triagem:
+* Demandas com risco real à saúde ou à continuidade do serviço podem ficar invisíveis no volume de mensagens;
+* Equipes perdem horas cobrando dados básicos que deveriam ter vindo no primeiro contato;
+* A priorização corre o risco de ser arbitrária, atendendo quem reclama mais alto em vez de quem mais precisa;
+* O time operacional sofre com sobrecarga de trabalho manual e falta de clareza nos prazos.
 
-Para evitar distorções de uma fórmula única aplicada a cenários heterogêneos, o Prioriza distribui as solicitações em quatro fluxos:
+---
 
-| Situação | Encaminhamento | Tratamento |
+## 🚦 Quatro Rotas Estratégicas de Encaminhamento
+Em vez de empurrar todas as solicitações para uma fila única, o Prioriza direciona cada caso para o fluxo mais adequado:
+
+| Situação Identificada | Rota de Encaminhamento | Tratamento Prático |
 | :--- | :--- | :--- |
-| **Dados completos e demanda operacional** | **Fila Normal (Score Provisório)** | Cálculo determinístico da pontuação (0 a 100 pontos) e validação da janela de início pela equipe técnica. |
-| **Dados essenciais ausentes** | **Retorno para Complementação** | A demanda não recebe pontuação forçada e retorna com perguntas objetivas para esclarecimento. |
-| **Sinais de risco ou agravamento** | **Triagem Humana Imediata** | A apuração técnica inicia imediatamente, sem aguardar score ou confirmação formal prévia. |
-| **Demanda planejada ou melhoria** | **Backlog de Planejamento** | Direcionamento para ciclos de planejamento, sem concorrer com a fila de incidentes imediatos. |
+| **Demanda completa e qualificada** | **Fila Regular com Prioridade** | Classificação automática por nível de criticidade e prazo de atendimento. |
+| **Falta de dados essenciais ou laudos** | **Retorno Guiado ao Solicitante** | A demanda não trava na equipe; retorna com orientações claras sobre o que falta. |
+| **Sinal de risco crítico ou vulnerabilidade** | **Ação Imediata (Fast Track)** | Pula etapas burocráticas e aciona atendimento prioritário da equipe responsável. |
+| **Sugestão ou melhoria de longo prazo** | **Backlog de Planejamento** | Registrada para ciclos futuros, sem concorrer com demandas do dia a dia. |
 
 ---
 
-## 3. Matriz Ponderada de 100 Pontos
+## 🤝 O Papel da Inteligência Artificial Responsável
+A IA atua como um copiloto consultivo para quem está na ponta do atendimento, com foco em simplicidade e governança:
 
-Nas demandas elegíveis para pontuação, aplica-se a matriz determinística composta por 5 dimensões:
+* **Leitura de Contexto:** A partir do relato livre do usuário, o modelo identifica fatos objetivos, histórico relatado e volume de pessoas impactadas;
+* **Verificação de Completude:** O sistema checa automaticamente se documentos, laudos ou dados de contato essenciais estão presentes antes de abrir a tarefa para a equipe;
+* **Sugestão de Resposta e Encaminhamento:** Aponta para qual setor direcionar e sugere mensagens de esclarecimento acolhedoras e profissionais;
+* **Decisão Centrada no Humano (Human-in-the-Loop):** A tecnologia analisa e recomenda, mas a validação e a decisão final cabem sempre ao profissional responsável.
 
-| Critério | O que avalia | Peso |
-| :--- | :--- | ---: |
-| **Urgência** | Prazo necessário para início do atendimento (definido pela triagem) | 30 |
-| **Impacto** | Nível de comprometimento do processo (interrompido, parcial ou com lentidão) | 30 |
-| **Risco** | Possibilidade de agravamento e existência de solução de contorno | 20 |
-| **Abrangência** | Volume confirmado de usuários ou clientes atingidos | 10 |
-| **Dependências** | Impacto direto em outras áreas ou processos subsequentes | 10 |
-| **Total** | | **100** |
+---
 
-```text
-pontos = ((nota - 1) / 4) * peso
+## 🛠️ Estrutura Técnica & Execução
+* **Frontend:** React, TypeScript, Vite
+* **Design & Estilo:** CSS modular, Motion Principles com física spring e micro-interações
+* **Governança:** GitFlow rigoroso com Issues, Branches e Pull Requests (conforme `AGENTS.md`)
+
+```bash
+# Instalar dependências
+npm install
+
+# Iniciar servidor local
+npm run dev
+
+# Gerar build de produção
+npm run build
 ```
 
-*Regra de Urgência Máxima:* Se a triagem definir início imediato (nota 5/5), o chamado recebe prioridade operacional máxima, independentemente do score total acumulado.
-
 ---
 
-## 4. Apoio Analítico e Governança
-
-O sistema dispõe de recursos de apoio à triagem:
-* **Separação entre Fatos e Hipóteses:** Identifica evidências confirmadas e isola suposições do solicitante;
-* **Perguntas Objetivas para Esclarecimento:** Gera sugestões de questionamentos para demandas incompletas;
-* **Exportação Estruturada:** Permite copiar o parecer em formato padronizado para registro em tickets de Service Desk (Jira, ServiceNow, Zendesk ou Slack);
-* **Governança:** A tecnologia atua como suporte analítico, permanecendo a decisão e responsabilidade final sob controle humano.
-
----
-
-## 5. Estrutura Técnica
-
-* **Interface:** React + TypeScript + Vite;
-* **Estilização:** CSS modular, responsivo e com foco em usabilidade;
-* **Arquitetura:** Componentes isolados em `components/`, regras em `lib/` e tipagens em `types/`.
-
----
-
-## 6. Instruções de Execução
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/thaycarv/prioriza-operacoes.git
-   ```
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Inicie o ambiente local:
-   ```bash
-   npm run dev
-   ```
-4. Acesse no navegador: `http://localhost:5173/prioriza-operacoes/`
-
----
-
-## 7. Créditos
-
-Projeto autoral desenvolvido por **Thayâne Carvalho**, voltado para **Processos, Gestão de Operações e Melhoria Contínua**.
+## 👩‍💼 Competências Aplicadas
+Engenharia de Processos • Triagem e Qualificação de Demandas • IA Generativa Aplicada • Governança Ética e Human-in-the-Loop • Transformação Digital em Serviços Essenciais
