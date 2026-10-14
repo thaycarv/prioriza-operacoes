@@ -4,16 +4,16 @@
 export const textos = {
   marca: {
     nome: "Prioriza",
-    assinatura: "Gestão e Triagem de Demandas Operacionais",
+    assinatura: "Triagem Operacional e Regulação em Saúde",
     versao: "Protótipo Operacional",
   },
 
   apresentacao: {
-    categoria: "GESTÃO DE OPERAÇÕES E PROCESSOS",
-    titulo: "Triagem estruturada de demandas,",
-    destaque: "com critérios objetivos e decisão humana.",
+    categoria: "GESTÃO DE OPERAÇÕES E PROCESSOS EM SAÚDE & FARMA",
+    titulo: "Triagem estruturada de solicitações operacionais e assistenciais,",
+    destaque: "com critérios objetivos, segurança do paciente e decisão humana.",
     descricao:
-      "Fluxo para qualificar, organizar e direcionar solicitações em operações de suporte e tecnologia. O sistema identifica o impacto real no processo, aponta informações pendentes e orienta o encaminhamento adequado com apoio analítico.",
+      "Fluxo para qualificar, organizar e direcionar demandas em hospitais, operadoras de saúde, redes de farmácias e suporte regulatório. O sistema identifica o impacto real no paciente e nos processos, aponta pendências de laudos e orienta o encaminhamento adequado com apoio analítico e governança ética.",
   },
 
   principios: [
@@ -21,65 +21,65 @@ export const textos = {
       numero: "01",
       titulo: "Entrada padronizada",
       descricao:
-        "Registro baseado em fatos observáveis e volume confirmado de usuários afetados, evitando suposições preliminares.",
+        "Registro baseado em fatos operacionais/clínicos e volume confirmado de pessoas afetadas, separando relatos preliminares de evidências técnicas.",
     },
     {
       numero: "02",
       titulo: "Tratamento de pendências",
       descricao:
-        "Demandas com dados incompletos retornam com perguntas objetivas para complementação pelo solicitante.",
+        "Solicitações sem laudos ou dados essenciais retornam com perguntas objetivas para complementação, evitando indeferimentos arbitrários.",
     },
     {
       numero: "03",
       titulo: "Decisão fundamentada",
       descricao:
-        "O cálculo ponderado organiza a fila de atendimento, cabendo à equipe de operações a avaliação final.",
+        "O cálculo ponderado e as regras de emergência organizam a fila, cabendo à equipe técnica e de saúde a avaliação final (Human-in-the-Loop).",
     },
   ],
 
   demonstracao: {
     categoria: "SIMULAÇÃO DO PROCESSO",
-    titulo: "Simulação de Cenários Operacionais",
+    titulo: "Simulação de Cenários Operacionais em Saúde",
   },
 
   case: {
     categoria: "METODOLOGIA E GOVERNANÇA",
     tituloLinha1: "Por que matrizes universais de pontuação",
-    tituloLinha2: "apresentam limitações na operação?",
+    tituloLinha2: "apresentam limitações na operação em saúde?",
 
     etapas: [
       {
         numero: "01",
         titulo: "Dispersão de solicitações",
         descricao:
-          "Demandas chegam por múltiplos canais com diferentes níveis de detalhamento, frequentemente classificadas como urgentes sem fundamentação.",
+          "Demandas chegam por múltiplos canais (consultórios, farmácias, unidades assistenciais) frequentemente marcadas como urgentes sem fundamentação técnica.",
       },
       {
         numero: "02",
         titulo: "Limitações da nota única",
         descricao:
-          "Atribuir uma pontuação automática a qualquer solicitação pode induzir a erros em pedidos incompletos e mascarar sinais críticos.",
+          "Atribuir um score cego a pedidos incompletos pode induzir a erros de auditoria, atrasar emergências e mascarar sinais críticos de risco ao paciente.",
       },
       {
         numero: "03",
         titulo: "Quatro rotas de encaminhamento",
         descricao:
-          "O modelo adota quatro caminhos distintos: fila operacional com score, retorno para complementação, triagem imediata para riscos e backlog para melhorias.",
+          "O modelo adota quatro caminhos: fila regulatória com score, retorno para complementação documental, triagem imediata para riscos críticos e backlog para melhorias.",
       },
       {
         numero: "04",
         titulo: "Tecnologia como suporte analítico",
         descricao:
-          "Modelos de suporte auxiliam na síntese de evidências e identificação de lacunas, mantendo a responsabilidade da decisão sob controle humano.",
+          "Modelos de inteligência auxiliam na síntese de evidências e identificação de lacunas, mantendo a responsabilidade da decisão sob controle do profissional responsável.",
       },
     ],
   },
 
   rodape: {
-    titulo: "Prioriza: Projeto de Operações e Melhoria Contínua",
+    titulo: "Prioriza: Projeto de Operações e Melhoria Contínua em Saúde",
     observacao:
-      "Protótipo desenvolvido para demonstrar fluxos de triagem operacional com suporte de modelos analíticos.",
+      "Protótipo desenvolvido para demonstrar fluxos de triagem e regulação operacional com suporte de modelos analíticos.",
     competencias:
-      "Modelagem de processos, Gestão de chamados, Análise de impacto, Governança operacional",
+      "Regulação em saúde, Triagem de demandas, Gestão de processos hospitalares e farmacêuticos, Resolução de bloqueios, Human-in-the-Loop",
   },
 } as const;

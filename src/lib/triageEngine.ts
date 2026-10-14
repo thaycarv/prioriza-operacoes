@@ -21,7 +21,7 @@ export function formatPoints(value: number): string {
 export function evaluateDemand(form: DemandForm): TriageResult {
   const desc = form.description.toLowerCase();
   const criticalSignal =
-    /aumento|continua aumentando|indispon|paralisa|múltipl|perda de dados|seguran|grave|parou tudo|crítico|critico/.test(
+    /aumento|continua aumentando|indispon|paralisa|múltipl|perda de dados|seguran|grave|parou tudo|crítico|critico|urgência|uti|óbito|reação adversa|quimioterap|anafilaxia|risco de vida|risco de morte/.test(
       desc
     ) || form.trend === "aumentando";
 

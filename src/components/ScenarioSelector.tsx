@@ -7,14 +7,14 @@ export const scenarioData: Record<
 > = {
   A: {
     badge: "Urgência Máxima",
-    description: "Cliente não finaliza compra (Score 53 com início imediato)",
+    description: "Bloqueio na dispensação de quimioterápico (Score 53 com início imediato)",
     form: {
-      title: "Cliente não finaliza compra",
-      origin: "Cliente",
-      kind: "Incidente",
+      title: "Bloqueio na dispensação de quimioterápico",
+      origin: "Farmácia Hospitalar",
+      kind: "Incidente Crítico",
       perceived: "Alta",
       description:
-        "Cliente informa que não consegue finalizar uma compra no checkout. Pode estar afetando outros clientes na mesma etapa.",
+        "Farmácia hospitalar relata travamento no sistema de dispensação de quimioterápicos para a ala oncológica. Pacientes aguardam infusão agendada para esta manhã.",
       process: "interrompido",
       workaround: "nao-sei",
       affected: "1",
@@ -25,14 +25,14 @@ export const scenarioData: Record<
   },
   B: {
     badge: "Dados Incompletos",
-    description: "Atualização de relatório (Retorno para complementação)",
+    description: "Autorização de cirurgia eletiva (Retorno por falta de laudo)",
     form: {
-      title: "Atualização de relatório gerencial",
-      origin: "Área interna",
-      kind: "Solicitação operacional",
+      title: "Autorização de cirurgia eletiva de alta complexidade",
+      origin: "Consultório Credenciado",
+      kind: "Regulação / Guia",
       perceived: "Alta",
       description:
-        "Operações solicita atualização de um relatório usado na reunião de diretoria amanhã. Prazo informado hoje às 18h.",
+        "Médico solicita autorização para artroplastia total de quadril com prótese importada. O pedido não contém o laudo de imagem anexado nem a justificativa de indicação clínica exigida pelo protocolo ANS.",
       process: "dificuldade",
       workaround: "nao-sei",
       affected: "",
@@ -43,14 +43,14 @@ export const scenarioData: Record<
   },
   C: {
     badge: "Melhoria Planejada",
-    description: "Nova funcionalidade (Encaminhamento ao backlog)",
+    description: "Revisão de protocolo ambulatorial (Direcionamento ao backlog)",
     form: {
-      title: "Análise para nova funcionalidade",
-      origin: "Área interna",
+      title: "Revisão do protocolo de teleconsulta para psicologia",
+      origin: "Coordenação Clínica",
       kind: "Melhoria planejada",
       perceived: "Moderada",
       description:
-        "Produto solicita análise de dados para avaliar nova funcionalidade. Sem prazo imediato. Pode influenciar o próximo trimestre.",
+        "Coordenação médica solicita reavaliação dos fluxos do formulário de triagem de telemedicina para o próximo ciclo semestral. Sem impacto em atendimentos vigentes.",
       process: "nao-afetado",
       workaround: "sim",
       affected: "1",
@@ -61,14 +61,14 @@ export const scenarioData: Record<
   },
   D: {
     badge: "Sinal de Risco",
-    description: "Aumento de lentidão sem confirmação (Triagem imediata)",
+    description: "Suspeita de reação adversa em lote (Triagem humana imediata)",
     form: {
-      title: "Aumento de lentidão no sistema",
-      origin: "Sistema/monitoramento",
-      kind: "Possível incidente",
+      title: "Suspeita de lote com reação adversa (Farmacovigilância)",
+      origin: "Vigilância / Enfermagem",
+      kind: "Possível incidente sanitário",
       perceived: "Crítica",
       description:
-        "Suporte identifica aumento de chamados sobre lentidão. Ainda não existe confirmação técnica de incidente, mas o volume continua aumentando.",
+        "Unidade de internação relata 2 casos de hipotensão súbita após infusão de lote de antibiótico. Ainda sem confirmação laboratorial da causa, mas volume de alertas de enfermagem continua aumentando.",
       process: "dificuldade",
       workaround: "nao-sei",
       affected: "",

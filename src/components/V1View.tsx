@@ -16,12 +16,12 @@ type Form = {
 
 const samples: Record<string, Form> = {
   A: {
-    title: "Cliente não finaliza compra",
-    origin: "Cliente",
-    kind: "Incidente",
+    title: "Bloqueio na dispensação de quimioterápico",
+    origin: "Farmácia Hospitalar",
+    kind: "Incidente Crítico",
     perceived: "Alta",
     description:
-      "Cliente informa que não consegue finalizar uma compra. Pode estar afetando outros clientes.",
+      "Farmácia hospitalar relata travamento no sistema de dispensação de quimioterápicos para a ala oncológica. Pacientes aguardam infusão.",
     process: "interrompido",
     workaround: "nao-sei",
     affected: "1",
@@ -30,12 +30,12 @@ const samples: Record<string, Form> = {
     sla: "sim",
   },
   B: {
-    title: "Atualização de dashboard",
-    origin: "Área interna",
-    kind: "Solicitação operacional",
+    title: "Autorização de cirurgia eletiva de alta complexidade",
+    origin: "Consultório Credenciado",
+    kind: "Regulação / Guia",
     perceived: "Alta",
     description:
-      "Operações solicita atualização de um dashboard usado na reunião da diretoria amanhã. Prazo hoje às 18h.",
+      "Médico solicita autorização de cirurgia de quadril com prótese importada. O pedido não contém laudo anexado nem justificativa clínica ANS.",
     process: "dificuldade",
     workaround: "nao-sei",
     affected: "",
@@ -44,12 +44,12 @@ const samples: Record<string, Form> = {
     sla: "nao-sei",
   },
   C: {
-    title: "Análise para nova funcionalidade",
-    origin: "Área interna",
+    title: "Revisão do protocolo de teleconsulta para psicologia",
+    origin: "Coordenação Clínica",
     kind: "Melhoria planejada",
     perceived: "Moderada",
     description:
-      "Produto solicita análise de dados para avaliar uma nova funcionalidade. Sem prazo definido. Pode influenciar o roadmap do próximo trimestre.",
+      "Coordenação médica solicita análise para avaliar nova triagem de telemedicina no próximo ciclo. Sem prazo imediato.",
     process: "nao-afetado",
     workaround: "sim",
     affected: "1",
@@ -58,12 +58,12 @@ const samples: Record<string, Form> = {
     sla: "nao",
   },
   D: {
-    title: "Aumento de lentidão",
-    origin: "Sistema/monitoramento",
-    kind: "Possível incidente",
+    title: "Suspeita de lote com reação adversa (Farmacovigilância)",
+    origin: "Vigilância / Enfermagem",
+    kind: "Possível incidente sanitário",
     perceived: "Crítica",
     description:
-      "Suporte identifica aumento de chamados sobre lentidão no sistema. Ainda não existe confirmação de incidente. O volume continua aumentando.",
+      "Unidade de internação relata casos de reação adversa grave após administração de lote específico de medicamento. Volume de notificações continua aumentando.",
     process: "dificuldade",
     workaround: "nao-sei",
     affected: "",
