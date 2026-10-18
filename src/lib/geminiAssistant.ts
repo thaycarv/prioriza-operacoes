@@ -86,20 +86,23 @@ export function analyzeDemand(
   let summary = "";
   let riskAssessment = "";
 
-  if (triage.route === "score") {
-    summary = `Pedido bem detalhado (Score ${triage.totalScore}/100). Você só precisa confirmar o prazo para iniciar o atendimento.`;
-    riskAssessment = triage.criticalSignal
-      ? "Atenção: há menção de piora ou risco de travar outras áreas."
-      : "Controlado: impacto delimitado e claro.";
+  if (triage.route === "queue") {
+    summary = `Pedido bem detalhado (Severidade ${triage.priority.level} - ${triage.priority.name}). Prazo recomendado: ${triage.priority.slaLabel}.`;
+    riskAssessment =
+      triage.priority.level === "P1"
+        ? "Crítico: risco direto ou interrupção de serviço essencial."
+        : triage.criticalSignal
+        ? "Atenção: sinais potenciais de agravamento identificados."
+        : "Controlado: impacto delimitado conforme critérios operacionais.";
   } else if (triage.route === "triage") {
-    summary = `Atenção: há sinais de problema grave no relato, mas faltam detalhes. Em vez de esperar, fale direto com quem abriu o chamado.`;
-    riskAssessment = "Alto risco: pode ser um incidente grave em andamento.";
+    summary = `Atenção: sinais de severidade crítica no relato com dados incompletos. A análise humana deve iniciar imediatamente.`;
+    riskAssessment = "Alto risco: potencial incidente grave em andamento.";
   } else if (triage.route === "return") {
-    summary = `Faltam informações fundamentais para entender a urgência. Copie as perguntas abaixo e peça para o solicitante responder antes de colocar na fila.`;
-    riskAssessment = "Não avaliado (dados insuficientes).";
+    summary = `Faltam informações essenciais para definir a criticidade. Copie as perguntas abaixo para orientação ao solicitante.`;
+    riskAssessment = "Não avaliado (dados documentais insuficientes).";
   } else {
-    summary = `Trata-se de uma melhoria planejada. Deve ir para a fila de planejamento futuro, sem furar a fila do suporte diário.`;
-    riskAssessment = "Baixo (demanda planejada).";
+    summary = `Trata-se de uma melhoria planejada. Deve seguir para o backlog de ciclos futuros sem concorrer com a fila de suporte diário.`;
+    riskAssessment = "Baixo (demanda planejada sem impacto imediato).";
   }
 
   return {

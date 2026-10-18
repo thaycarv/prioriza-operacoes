@@ -1,41 +1,47 @@
-# Matriz e regras da V1
+# Matriz Operacional e Regras de Triagem (P1 a P4)
 
-## Critérios ponderados
+## Níveis de Criticidade & Severidade (Padrão ITSM / Operações de Saúde)
 
-| Critério | Definição | Peso |
-| --- | --- | ---: |
-| Urgência | Em quanto tempo o atendimento precisa começar | 30 |
-| Impacto | Efeito atual sobre a operação | 30 |
-| Risco | Consequências possíveis se a demanda não for tratada | 20 |
-| Abrangência | Alcance confirmado do problema | 10 |
-| Dependências | Outras atividades que podem ficar impedidas | 10 |
+| Nível | Classificação | Critérios Operacionais | Meta de Início (SLA) | Rota de Encaminhamento |
+| :---: | :--- | :--- | :--- | :--- |
+| **P1** | **Crítico (Fast Track)** | Interrupção total de serviço essencial, ausência de contorno ou risco direto à vida/segurança | **Imediato (até 1h)** | Fila de Ação Imediata (Fast Track) |
+| **P2** | **Alto Impacto** | Operação parcialmente comprometida sem contorno, volume expressivo de afetados (>= 10) ou ocorrências em aceleração | **Em até 4 horas** | Fila Operacional Prioritária |
+| **P3** | **Médio / Regular** | Dificuldade ou lentidão operacional com contorno viável ativo ou escopo pontual (< 10 afetados) | **No mesmo dia / até 24h** | Fila Operacional Regular |
+| **P4** | **Baixo / Planejamento** | Demanda de melhoria de longo prazo ou sem impacto nas rotinas atuais | **Ciclos de Roadmap** | Backlog de Planejamento |
 
-## Conversão da nota
+---
 
-`pontos = ((nota - 1) / 4) × peso`
+## Dimensões de Avaliação da Matriz
 
-| Nota | Parcela do peso |
-| ---: | ---: |
-| 1/5 | 0% |
-| 2/5 | 25% |
-| 3/5 | 50% |
-| 4/5 | 75% |
-| 5/5 | 100% |
+1. **Impacto no Processo**:
+   - *Interrompido (Parada Total)*: Atividades operacionais completamente paralisadas (Impacto Crítico).
+   - *Parcialmente Comprometido*: Etapas essenciais bloqueadas (Impacto Alto).
+   - *Dificuldade / Lentidão*: Operação continua com esforço adicional (Impacto Moderado).
+   - *Não Afetado*: Rotina normal (Impacto Baixo).
 
-O score é calculado pelo sistema. A camada interpretativa apenas sugere notas e justificativas quando existem evidências suficientes.
+2. **Alternativa Temporária (Contorno)**:
+   - *Sem contorno*: A equipe não tem como continuar sem a resolução (Agrava severidade).
+   - *A verificar*: Existência de procedimento alternativo ainda não confirmada.
+   - *Com contorno viável*: Procedimento provisório ativo (Mitiga a severidade imediata).
 
-## Regras independentes do score
+3. **Abrangência Confirmada**:
+   - *Ampla Escala (>= 50)*: Impacto generalizado.
+   - *Escala Departamental (10 a 49)*: Múltiplas equipes ou clientes impactados.
+   - *Ocorrência Pontual (< 10)*: Incidente restrito.
 
-- Urgência 5/5 exige início imediato.
-- SLA ou prazo formal é validado internamente e não compõe a pontuação.
-- Evolução do problema é tratada como ponto de conferência.
-- Ausência de SLA ou de tendência confirmada não bloqueia o score por si só.
-- Falta de informação em um critério central impede o cálculo total.
+4. **Evolução da Ocorrência (Tendência)**:
+   - *Aumentando rapidamente*: Propagação acelerada.
+   - *Oscilando*: Intermitente.
+   - *Estável*: Sintoma controlado.
 
-## Encaminhamentos
+5. **Compromisso de Prazo (SLA)**:
+   - Verificação de existência de prazo contratual ou regulatório formal (ANS, catálogo interno).
 
-1. Dados mínimos completos: score provisório e validação da triagem.
-2. Dados incompletos sem indício crítico: retorno para complementação.
-3. Dados incompletos com indício crítico: triagem humana imediata, sem score.
-4. Demanda planejada: backlog.
+---
 
+## Quatro Rotas Estratégicas de Encaminhamento
+
+1. **Fila Operacional Qualificada (P1 a P3)**: Dados mínimos validados, severidade apurada e ticket posicionado na fila de atendimento.
+2. **Devolver para Complementação**: Chamados sem laudos ou informações fundamentais retornam imediatamente com perguntas orientadas, evitando retrabalho.
+3. **Triagem Humana Imediata (Fast Track)**: Sinais críticos identificados mesmo com formulário incompleto. O atendimento começa de imediato enquanto a documentação é complementada.
+4. **Backlog de Planejamento (P4)**: Demandas de melhoria são organizadas para ciclos futuros sem concorrer com a fila de suporte diário.

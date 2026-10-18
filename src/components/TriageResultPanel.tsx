@@ -1,6 +1,5 @@
 import React from "react";
 import { DemandForm, TriageResult, AiAnalysis } from "../types";
-import { formatPoints } from "../lib/triageEngine";
 import { AiAssistantCard } from "./AiAssistantCard";
 
 interface TriageResultPanelProps {
@@ -30,7 +29,7 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
         <span className="step-badge">2</span>
         <div>
           <b>Análise e Encaminhamento</b>
-          <small>Direcionamento do chamado e pontos de conferência</small>
+          <small>Direcionamento do chamado e enquadramento de severidade</small>
         </div>
       </div>
 
@@ -69,24 +68,24 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
           {/* Alerta de Triagem Imediata */}
           {result.route === "triage" && (
             <div className="urgency-rule warning-rule">
-              <small>ALERTA DE ATENÇÃO IMEDIATA</small>
+              <small>ALERTA DE ATENÇÃO IMEDIATA (FAST TRACK)</small>
               <b>Possível incidente com risco de agravamento</b>
               <p>
-                O chamado menciona impacto crescente ou interrupção. A análise
-                técnica deve iniciar imediatamente, sem aguardar o preenchimento
-                de todos os campos.
+                O chamado menciona impacto crítico ou risco de paralisação. A
+                análise técnica deve iniciar imediatamente, sem aguardar o
+                preenchimento de todos os campos.
               </p>
             </div>
           )}
 
-          {/* Se Rota for Score (Demanda elegível) */}
-          {result.route === "score" && (
+          {/* Se Rota for Fila Operacional Qualificada */}
+          {result.route === "queue" && (
             <>
               {/* Definição de Urgência pelo Operador */}
               <div className="urgency-selector-card">
                 <div className="urgency-header">
-                  <b>Definição do prazo de início pela triagem</b>
-                  <small>Peso no cálculo: 30 pontos</small>
+                  <b>Validação do prazo de início pela triagem</b>
+                  <small>Ajuste operacional de SLA</small>
                 </div>
                 <label className="urgency-label">
                   Janela para início do atendimento técnico:
@@ -94,11 +93,11 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                     value={form.actionWindow}
                     onChange={(e) => onChangeUrgency(e.target.value)}
                   >
-                    <option value="5">Imediato (Urgência máxima: 30 pts)</option>
-                    <option value="4">Em até 1 hora (22.5 pts)</option>
-                    <option value="3">No mesmo dia (15 pts)</option>
-                    <option value="2">Em até 3 dias úteis (7.5 pts)</option>
-                    <option value="1">Fluxo regular ou backlog (0 pts)</option>
+                    <option value="5">Imediato (Urgência máxima / P1)</option>
+                    <option value="4">Em até 1 hora (Alta prioridade / P2)</option>
+                    <option value="3">No mesmo dia (Prioridade regular / P3)</option>
+                    <option value="2">Em até 3 dias úteis (Rotina / P3)</option>
+                    <option value="1">Fluxo regular ou backlog (P4)</option>
                   </select>
                 </label>
               </div>
@@ -109,48 +108,48 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                   <small>REGRA DE URGÊNCIA MÁXIMA</small>
                   <b>Atendimento com início imediato</b>
                   <p>
-                    A urgência máxima exige ação prioritária da equipe,
-                    independentemente da pontuação total apurada.
+                    A urgência máxima exige acionamento prioritário da equipe,
+                    tratando o ticket como emergência operacional (Fast Track).
                   </p>
                 </div>
               )}
 
-              {/* Scoreline com Medidor Visual */}
-              <div className="scoreline">
-                <div className="score-number-box">
-                  <span className="score-val">{result.totalScore}</span>
-                  <small className="score-max">/100</small>
-                  <p>Score ponderado</p>
-                </div>
-                <div className="meter-container">
-                  <div className="meter-bar">
-                    <i style={{ width: `${result.totalScore}%` }}></i>
-                  </div>
-                  <div className="meter-labels">
-                    <span>Baixa (0)</span>
-                    <span>Média (50)</span>
-                    <span>Alta (100)</span>
+              {/* Cartão Executivo de Severidade Operacional */}
+              <div className={`severity-card ${result.priority.badgeClass}`}>
+                <div className="severity-card-top">
+                  <div className="severity-badge-box">
+                    <span className="severity-code">{result.priority.level}</span>
+                    <div>
+                      <b className="severity-title">{result.priority.name}</b>
+                      <span className="severity-sla-tag">
+                        ⏱ {result.priority.slaLabel}
+                      </span>
+                    </div>
                   </div>
                 </div>
+                <p className="severity-rationale">
+                  <b>Diagnóstico da Triagem:</b> {result.priority.rationale}
+                </p>
               </div>
 
-              {/* Tabela de Critérios */}
-              <div className="criteria-container">
-                <div className="criteria-header">
-                  <b>Composição da Matriz Ponderada</b>
-                  <small>Escala: ((Nota - 1) / 4) × Peso</small>
+              {/* Matriz de Fatores Operacionais */}
+              <div className="factors-container">
+                <div className="factors-header">
+                  <b>Matriz de Avaliação Operacional (Impacto x Urgência)</b>
+                  <small>5 Dimensões de Governança</small>
                 </div>
-                <div className="criteria">
-                  {result.criteria.map((c) => (
-                    <div key={c.name} className="criteria-item">
-                      <div className="criteria-main">
-                        <span className="criteria-name">{c.name}</span>
-                        <b className="criteria-note">{c.note}/5</b>
-                        <em className="criteria-points">
-                          {formatPoints(c.points)} pts
-                        </em>
+                <div className="factors-list">
+                  {result.factors.map((f, idx) => (
+                    <div key={idx} className="factor-item">
+                      <div className="factor-main">
+                        <span className="factor-name">{f.name}</span>
+                        <span
+                          className={`factor-impact-badge impact-${f.impactLevel}`}
+                        >
+                          {f.status}
+                        </span>
                       </div>
-                      <small className="criteria-rationale">{c.rationale}</small>
+                      <small className="factor-detail">{f.detail}</small>
                     </div>
                   ))}
                 </div>
@@ -171,7 +170,7 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                   <p>
                     {form.sla === "sim"
                       ? "Verifique o contrato aplicável e registre o tempo restante no ticket."
-                      : "Trate a demanda conforme a fila operacional e o score ponderado."}
+                      : "Trate a demanda conforme a fila operacional e o nível de severidade atribuído."}
                   </p>
                 </div>
 

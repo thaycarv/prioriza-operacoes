@@ -33,7 +33,7 @@ export const textos = {
       numero: "03",
       titulo: "Decisão fundamentada",
       descricao:
-        "O cálculo ponderado e as regras de emergência organizam a fila, cabendo à equipe técnica e de saúde a avaliação final (Human-in-the-Loop).",
+        "A matriz de severidade (P1 a P4) e as regras de emergência organizam a fila com metas claras de SLA, cabendo à equipe técnica a validação final (Human-in-the-Loop).",
     },
   ],
 
@@ -64,7 +64,7 @@ export const textos = {
         numero: "03",
         titulo: "Quatro rotas de encaminhamento",
         descricao:
-          "O modelo adota quatro caminhos: fila regulatória com score, retorno para complementação documental, triagem imediata para riscos críticos e backlog para melhorias.",
+          "O modelo adota quatro caminhos: fila operacional qualificada (P1 a P4), retorno para complementação documental, triagem imediata para riscos críticos e backlog para melhorias.",
       },
       {
         numero: "04",

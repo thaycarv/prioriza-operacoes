@@ -6,8 +6,8 @@ export const scenarioData: Record<
   { form: DemandForm; badge: string; description: string }
 > = {
   A: {
-    badge: "Urgência Máxima",
-    description: "Bloqueio na dispensação de quimioterápico (Score 53 com início imediato)",
+    badge: "Crítico P1 (Fast Track)",
+    description: "Bloqueio na dispensação de quimioterápico (Severidade P1 com início imediato)",
     form: {
       title: "Bloqueio na dispensação de quimioterápico",
       origin: "Farmácia Hospitalar",
