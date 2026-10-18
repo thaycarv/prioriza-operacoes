@@ -141,7 +141,7 @@ export default function App() {
             className={view === "analyst" ? "active" : ""}
             onClick={() => setView("analyst")}
           >
-            🔍 Visão da Triagem (Análise e Score)
+            🔍 Visão da Triagem (Análise e Severidade)
           </button>
         </div>
 

@@ -12,14 +12,24 @@ export type DemandForm = {
   sla: string;
 };
 
-export type RouteType = "score" | "return" | "triage" | "backlog";
+export type RouteType = "queue" | "return" | "triage" | "backlog";
 
-export type CriteriaScore = {
+export type PriorityLevel = "P1" | "P2" | "P3" | "P4";
+
+export type SeverityInfo = {
+  level: PriorityLevel;
   name: string;
-  note: number;
-  weight: number;
-  points: number;
+  slaLabel: string;
+  color: string;
+  badgeClass: string;
   rationale: string;
+};
+
+export type OperationalFactor = {
+  name: string;
+  status: string;
+  impactLevel: "critico" | "alto" | "moderado" | "baixo";
+  detail: string;
 };
 
 export type TriageResult = {
@@ -28,8 +38,8 @@ export type TriageResult = {
   routeDescription: string;
   missingFields: string[];
   criticalSignal: boolean;
-  totalScore: number;
-  criteria: CriteriaScore[];
+  priority: SeverityInfo;
+  factors: OperationalFactor[];
   worseningMarker: string;
   worseningAction: string;
 };
@@ -40,6 +50,6 @@ export type AiAnalysis = {
   missingElements: string[];
   suggestedQuestions: string[];
   summary: string;
-  suggestedActionWindow?: number;
   riskAssessment: string;
 };
+

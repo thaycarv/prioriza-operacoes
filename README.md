@@ -27,6 +27,16 @@ Em vez de empurrar todas as solicitações para uma fila única, o Prioriza dire
 
 ---
 
+## 📊 Matriz de Severidade & Prazos (P1 a P4)
+Em vez de fórmulas matemáticas arbitrárias ou pontuações artificiais de IA, o Prioriza adota a matriz de severidade e criticidade operacional (alinhada aos padrões de ITSM e governança em saúde):
+
+* **P1: Crítico (Fast Track):** Interrupção total de serviço essencial ou risco direto à segurança/saúde. Início imediato (SLA: até 1 hora).
+* **P2: Alto Impacto:** Operação parcialmente comprometida sem contorno provisório ou múltiplos usuários afetados. (SLA: até 4 horas).
+* **P3: Médio / Regular:** Dificuldade operacional com procedimento de contorno viável ativo ou impacto pontual. (SLA: no mesmo dia / até 24h).
+* **P4: Baixo / Planejamento:** Melhoria contínua ou demanda sem impacto nas rotinas atuais. (Ciclos de Roadmap).
+
+---
+
 ## 🤝 O Papel da Inteligência Artificial Responsável
 A IA atua como um copiloto consultivo para quem está na ponta do atendimento, com foco em simplicidade e governança:
 
