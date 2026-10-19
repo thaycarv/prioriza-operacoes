@@ -87,31 +87,7 @@ export default function App() {
     <main>
       <Header />
 
-      {/* Seção Principal de Apresentação */}
-      <section className="hero">
-        <div>
-          <p className="eyebrow">{textos.apresentacao.categoria}</p>
-          <h1>
-            {textos.apresentacao.titulo}
-            <br />
-            <em>{textos.apresentacao.destaque}</em>
-          </h1>
-          <p className="lede">{textos.apresentacao.descricao}</p>
-        </div>
-
-        <div className="principles">
-          {textos.principios.map((item) => [
-            <span key={`${item.numero}-numero`}>{item.numero}</span>,
-            <p key={`${item.numero}-texto`}>
-              <b>{item.titulo}</b>
-              <br />
-              {item.descricao}
-            </p>,
-          ])}
-        </div>
-      </section>
-
-      {/* Espaço de Trabalho e Demonstração */}
+      {/* Espaço de Trabalho e Demonstração (Direto no Protótipo) */}
       <section className="workspace">
         <div className="section-head">
           <div>
@@ -168,23 +144,22 @@ export default function App() {
         </div>
       </section>
 
-      {/* Metodologia e Fundamentação */}
-      <section className="case">
-        <div>
-          <p className="eyebrow">{textos.case.categoria}</p>
-          <h2>
-            {textos.case.tituloLinha1}
-            <br />
-            {textos.case.tituloLinha2}
-          </h2>
+      {/* Diretrizes e Princípios Operacionais */}
+      <section className="about-section">
+        <div className="about-header">
+          <p className="eyebrow">{textos.apresentacao.categoria}</p>
+          <h2>{textos.apresentacao.titulo}</h2>
+          <p className="lede">{textos.apresentacao.descricao}</p>
         </div>
-        <div className="case-grid">
-          {textos.case.etapas.map((etapa) => (
-            <article key={etapa.numero}>
-              <span>{etapa.numero}</span>
-              <b>{etapa.titulo}</b>
-              <p>{etapa.descricao}</p>
-            </article>
+
+        <div className="principles">
+          {textos.principios.map((item) => (
+            <div key={item.numero} className="principle-item">
+              <span className="principle-num">{item.numero}</span>
+              <p>
+                <b>{item.titulo}:</b> {item.descricao}
+              </p>
+            </div>
           ))}
         </div>
       </section>

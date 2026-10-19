@@ -4,7 +4,7 @@
 
 | Nível | Classificação | Critérios Operacionais | Meta de Início (SLA) | Rota de Encaminhamento |
 | :---: | :--- | :--- | :--- | :--- |
-| **P1** | **Crítico (Fast Track)** | Interrupção total de serviço essencial, ausência de contorno ou risco direto à vida/segurança | **Imediato (até 1h)** | Fila de Ação Imediata (Fast Track) |
+| **P1** | **Crítico (Ação Imediata)** | Interrupção total de serviço essencial, ausência de contorno ou risco direto à vida/segurança | **Imediato (até 1h)** | Fila de Ação Imediata |
 | **P2** | **Alto Impacto** | Operação parcialmente comprometida sem contorno, volume expressivo de afetados (>= 10) ou ocorrências em aceleração | **Em até 4 horas** | Fila Operacional Prioritária |
 | **P3** | **Médio / Regular** | Dificuldade ou lentidão operacional com contorno viável ativo ou escopo pontual (< 10 afetados) | **No mesmo dia / até 24h** | Fila Operacional Regular |
 | **P4** | **Baixo / Planejamento** | Demanda de melhoria de longo prazo ou sem impacto nas rotinas atuais | **Ciclos de Roadmap** | Backlog de Planejamento |
@@ -43,5 +43,5 @@
 
 1. **Fila Operacional Qualificada (P1 a P3)**: Dados mínimos validados, severidade apurada e ticket posicionado na fila de atendimento.
 2. **Devolver para Complementação**: Chamados sem laudos ou informações fundamentais retornam imediatamente com perguntas orientadas, evitando retrabalho.
-3. **Triagem Humana Imediata (Fast Track)**: Sinais críticos identificados mesmo com formulário incompleto. O atendimento começa de imediato enquanto a documentação é complementada.
+3. **Triagem Imediata de Risco**: Sinais críticos identificados mesmo com formulário incompleto. O atendimento começa de imediato enquanto a documentação é complementada.
 4. **Backlog de Planejamento (P4)**: Demandas de melhoria são organizadas para ciclos futuros sem concorrer com a fila de suporte diário.

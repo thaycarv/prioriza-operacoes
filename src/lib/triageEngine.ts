@@ -12,7 +12,7 @@ export const PRIORITY_DEFINITIONS: Record<
 > = {
   P1: {
     level: "P1",
-    name: "Crítico (Fast Track)",
+    name: "Crítico (Ação Imediata)",
     slaLabel: "Atendimento Imediato (até 1 hora)",
     color: "#dc2626",
     badgeClass: "badge-p1",
@@ -280,7 +280,7 @@ export function evaluateDemand(form: DemandForm): TriageResult {
     if (criticalSignal) {
       return {
         route: "triage",
-        routeTitle: "Triagem Humana Imediata (Fast Track)",
+        routeTitle: "Triagem Imediata de Risco",
         routeDescription:
           "Sinais de possível criticidade detectados com dados incompletos. A análise humana começa de imediato enquanto se solicita complementação.",
         missingFields: missing,

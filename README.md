@@ -22,7 +22,7 @@ Em vez de empurrar todas as solicitações para uma fila única, o Prioriza dire
 | :--- | :--- | :--- |
 | **Demanda completa e qualificada** | **Fila Regular com Prioridade** | Classificação automática por nível de criticidade e prazo de atendimento. |
 | **Falta de dados essenciais ou laudos** | **Retorno Guiado ao Solicitante** | A demanda não trava na equipe; retorna com orientações claras sobre o que falta. |
-| **Sinal de risco crítico ou vulnerabilidade** | **Ação Imediata (Fast Track)** | Pula etapas burocráticas e aciona atendimento prioritário da equipe responsável. |
+| **Sinal de risco crítico ou vulnerabilidade** | **Ação Imediata** | Pula etapas burocráticas e aciona atendimento prioritário da equipe responsável. |
 | **Sugestão ou melhoria de longo prazo** | **Backlog de Planejamento** | Registrada para ciclos futuros, sem concorrer com demandas do dia a dia. |
 
 ---
@@ -30,7 +30,7 @@ Em vez de empurrar todas as solicitações para uma fila única, o Prioriza dire
 ## 📊 Matriz de Severidade & Prazos (P1 a P4)
 Em vez de fórmulas matemáticas arbitrárias ou pontuações artificiais de IA, o Prioriza adota a matriz de severidade e criticidade operacional (alinhada aos padrões de ITSM e governança em saúde):
 
-* **P1: Crítico (Fast Track):** Interrupção total de serviço essencial ou risco direto à segurança/saúde. Início imediato (SLA: até 1 hora).
+* **P1: Crítico (Ação Imediata):** Interrupção total de serviço essencial ou risco direto à segurança/saúde. Início imediato (SLA: até 1 hora).
 * **P2: Alto Impacto:** Operação parcialmente comprometida sem contorno provisório ou múltiplos usuários afetados. (SLA: até 4 horas).
 * **P3: Médio / Regular:** Dificuldade operacional com procedimento de contorno viável ativo ou impacto pontual. (SLA: no mesmo dia / até 24h).
 * **P4: Baixo / Planejamento:** Melhoria contínua ou demanda sem impacto nas rotinas atuais. (Ciclos de Roadmap).

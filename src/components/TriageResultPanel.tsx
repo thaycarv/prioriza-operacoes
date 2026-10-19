@@ -68,7 +68,7 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
           {/* Alerta de Triagem Imediata */}
           {result.route === "triage" && (
             <div className="urgency-rule warning-rule">
-              <small>ALERTA DE ATENÇÃO IMEDIATA (FAST TRACK)</small>
+              <small>ALERTA DE ATENÇÃO IMEDIATA</small>
               <b>Possível incidente com risco de agravamento</b>
               <p>
                 O chamado menciona impacto crítico ou risco de paralisação. A
@@ -109,7 +109,7 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                   <b>Atendimento com início imediato</b>
                   <p>
                     A urgência máxima exige acionamento prioritário da equipe,
-                    tratando o ticket como emergência operacional (Fast Track).
+                    tratando o ticket como emergência operacional prioritária.
                   </p>
                 </div>
               )}
