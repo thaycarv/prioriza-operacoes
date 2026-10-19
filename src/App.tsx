@@ -102,7 +102,24 @@ export default function App() {
           />
         </div>
 
-        {/* Alternador de Perfis (Primeiro Solicitante, Depois Triagem) */}
+        {/* Como Funciona na Prática (Entre a Simulação e os Controles de Visão) */}
+        <div className="practice-explainer">
+          <div className="explainer-header">
+            <p className="eyebrow">{textos.comoFunciona.categoria}</p>
+            <h3>{textos.comoFunciona.titulo}</h3>
+          </div>
+          <div className="explainer-grid">
+            {textos.comoFunciona.etapas.map((etapa) => (
+              <div key={etapa.numero} className="explainer-card">
+                <span className="explainer-num">{etapa.numero}</span>
+                <b>{etapa.titulo}</b>
+                <p>{etapa.descricao}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Alternador de Perfis (Centralizado) */}
         <div
           className="view-switch"
           aria-label="Alternar perfil de visualização"
@@ -121,7 +138,7 @@ export default function App() {
           </button>
         </div>
 
-        {/* Painéis Principais */}
+        {/* Painéis Principais (Centralizados) */}
         <div className={`grid view-${view}`}>
           <IntakeForm
             form={form}

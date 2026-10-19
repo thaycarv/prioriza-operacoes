@@ -167,7 +167,9 @@ body {
 
 /* Workspace (Principal: Direto no Protótipo) */
 .workspace {
-  padding: 30px 5vw 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
 }
 
 .eyebrow {
@@ -320,20 +322,84 @@ body {
   color: var(--green);
 }
 
-/* View Switch */
+/* Practice Explainer (Entre Cenários e Alternador de Visão) */
+.practice-explainer {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin: 24px 0 28px;
+  box-shadow: 0 4px 16px rgba(15, 31, 27, 0.03);
+}
+
+.explainer-header {
+  margin-bottom: 16px;
+}
+
+.explainer-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 4px 0 0;
+  color: var(--ink);
+}
+
+.explainer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.explainer-card {
+  background: #f8faf9;
+  border: 1px solid #e2e8e4;
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.explainer-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15, 31, 27, 0.05);
+}
+
+.explainer-num {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--green);
+}
+
+.explainer-card b {
+  font-size: 13.5px;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.explainer-card p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* View Switch (Centralizado) */
 .view-switch {
-  display: inline-flex;
+  display: flex;
   background: #e3ece8;
   padding: 4px;
   border-radius: 10px;
-  margin-bottom: 22px;
+  margin: 0 auto 26px;
+  width: fit-content;
   gap: 4px;
 }
 
 .view-switch button {
   border: 0;
   background: transparent;
-  padding: 8px 16px;
+  padding: 8px 18px;
   border-radius: 7px;
   font-size: 13px;
   font-weight: 700;
@@ -348,12 +414,14 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
-/* Panels & Grid */
+/* Panels & Grid (Centralizados) */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
   align-items: start;
+  max-width: 1140px;
+  margin: 0 auto;
 }
 
 .grid.view-requester .result-panel {
@@ -1208,6 +1276,9 @@ footer p:last-child {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .explainer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
   .about-section,
   .grid {
     grid-template-columns: 1fr;
@@ -1227,6 +1298,9 @@ footer p:last-child {
 }
 
 @media (max-width: 560px) {
+  .explainer-grid {
+    grid-template-columns: 1fr;
+  }
   .workspace {
     padding-inline: 14px;
   }
