@@ -42,6 +42,38 @@ export const textos = {
     titulo: "Simulação de Cenários Operacionais em Saúde",
   },
 
+  comoFunciona: {
+    categoria: "COMO FUNCIONA NA PRÁTICA",
+    titulo:
+      "Por que filas únicas e pontuações automáticas costumam falhar na operação real?",
+    etapas: [
+      {
+        numero: "01",
+        titulo: "Volume desordenado",
+        descricao:
+          "Pedidos chegam por mensagens, e-mails e formulários. Sem um filtro inicial, chamados graves disputam espaço com dúvidas simples.",
+      },
+      {
+        numero: "02",
+        titulo: "O perigo de dar nota a pedido incompleto",
+        descricao:
+          "Calcular prioridade para um pedido que não tem informações básicas gera prazos irreais e atrasa quem mais precisa.",
+      },
+      {
+        numero: "03",
+        titulo: "Quatro caminhos bem definidos",
+        descricao:
+          "Cada chamado vai para o lugar certo: atendimento urgente, fila com prioridade, devolução para o solicitante ou planejamento futuro.",
+      },
+      {
+        numero: "04",
+        titulo: "Tecnologia como apoio, não como dona da decisão",
+        descricao:
+          "O sistema resume fatos e sugere as perguntas certas, mas quem avalia e bate o martelo é quem conhece a operação.",
+      },
+    ],
+  },
+
   rodape: {
     titulo: "Prioriza: Gestão de Operações e Eficiência de Processos",
     observacao:
