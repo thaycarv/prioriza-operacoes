@@ -131,55 +131,6 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                   <b>Diagnóstico da Triagem:</b> {result.priority.rationale}
                 </p>
               </div>
-
-              {/* Matriz de Fatores Operacionais */}
-              <div className="factors-container">
-                <div className="factors-header">
-                  <b>Matriz de Avaliação Operacional (Impacto x Urgência)</b>
-                  <small>5 Dimensões de Governança</small>
-                </div>
-                <div className="factors-list">
-                  {result.factors.map((f, idx) => (
-                    <div key={idx} className="factor-item">
-                      <div className="factor-main">
-                        <span className="factor-name">{f.name}</span>
-                        <span
-                          className={`factor-impact-badge impact-${f.impactLevel}`}
-                        >
-                          {f.status}
-                        </span>
-                      </div>
-                      <small className="factor-detail">{f.detail}</small>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Pontos de conferência */}
-              <div className="attention-block">
-                <small>PONTOS DE CONFERÊNCIA</small>
-                <div className="attention-item">
-                  <span>SLA e Prazo Formal</span>
-                  <b>
-                    {form.sla === "sim"
-                      ? "Solicitante informou existência de SLA acordado"
-                      : form.sla === "nao"
-                      ? "Solicitante informou ausência de prazo formal"
-                      : "Existência de prazo formal não confirmada"}
-                  </b>
-                  <p>
-                    {form.sla === "sim"
-                      ? "Verifique o contrato aplicável e registre o tempo restante no ticket."
-                      : "Trate a demanda conforme a fila operacional e o nível de severidade atribuído."}
-                  </p>
-                </div>
-
-                <div className="attention-item">
-                  <span>Evolução da Ocorrência</span>
-                  <b>{result.worseningMarker}</b>
-                  <p>{result.worseningAction}</p>
-                </div>
-              </div>
             </>
           )}
 
