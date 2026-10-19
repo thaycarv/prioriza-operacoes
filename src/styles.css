@@ -667,7 +667,6 @@ body {
   font-size: 13px;
 }
 
-.route.score,
 .route.queue {
   background: #ecfdf5;
   color: #065f46;
@@ -1216,6 +1215,11 @@ body {
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+}
+
+.modal-actions .primary {
+  width: auto;
+  justify-content: center;
 }
 
 /* Empty State */

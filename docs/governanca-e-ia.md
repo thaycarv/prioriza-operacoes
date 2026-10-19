@@ -30,7 +30,7 @@
 * Não inventa dados ausentes para completar cálculos;
 * Não confirma incidentes técnicos de forma autônoma;
 * Não declara prioridade final sem validação humana;
-* Não utiliza a urgência percebida pelo solicitante para alterar a matriz ponderada;
+* Não utiliza a urgência percebida pelo solicitante para alterar a matriz de severidade;
 * Não dispensa a revisão do analista de operações.
 
 ---
@@ -41,7 +41,7 @@
 Relata os fatos conhecidos e dados observáveis do ocorrido, recebendo o protocolo para acompanhamento.
 
 ### Sistema Determinístico
-Valida o preenchimento, direciona para uma das quatro rotas e executa o cálculo matemático da matriz ponderada.
+Valida o preenchimento, direciona para uma das quatro rotas e aplica as regras da matriz de severidade e SLAs.
 
 ### Suporte Analítico
 Categoriza o relato entre fatos e hipóteses, aponta pendências e sugere perguntas para complementação.

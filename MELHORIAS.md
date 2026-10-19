@@ -19,8 +19,7 @@ Este documento cataloga as evoluções realizadas no **Prioriza**, estruturando 
 
 1. **Jornada de Usuário Reordenada:**
    * O sistema abre por padrão na **Visão do Solicitante**, permitindo o registro da demanda e visualização do protocolo de atendimento.
-   * O operador pode alternar para a **Visão da Triagem** para conferir pontuação, pontos de atenção e recomendações.
-   * Alternador de versões integrado no cabeçalho para comparação entre a Versão 1.0 e a Versão 2.0.
+   * O operador pode alternar para a **Visão da Triagem** para conferir o enquadramento de severidade (P1 a P4), pontos de atenção e prazos de SLA.
 
 2. **Apoio Analítico Sem Complexidade Excessiva:**
    * Identificação de dados confirmados versus hipóteses levantadas no relato.

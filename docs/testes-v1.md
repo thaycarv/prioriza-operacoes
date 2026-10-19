@@ -1,43 +1,36 @@
-# Testes da V1
+# Casos de Teste e Validação Operacional
 
 ## Objetivo
 
-Submeter a primeira matriz a situações diferentes para verificar se o score, sozinho, seria suficiente para decidir o encaminhamento.
+Submeter a matriz operacional a cenários reais de saúde e regulação operacional para validar a aderência das quatro rotas de encaminhamento e a eficácia da triagem com suporte analítico.
 
-## Resultados
+## Cenários de Teste Validados
 
-### Cenário A — Cliente não finaliza compra
+### Cenário A: Bloqueio na dispensação de quimioterápico
+- **Contexto:** Travamento no sistema de dispensação da farmácia hospitalar para a oncologia com pacientes aguardando infusão.
+- **Enquadramento:** Severidade Crítica P1 (Ação Imediata).
+- **Meta de Início (SLA):** Imediato (até 1 hora).
+- **Resultado:** Ação imediata com acionamento prioritário da equipe técnica.
+- **Aprendizado:** Incidentes com risco direto à saúde exigem rota prioritária instantânea sem barreiras burocráticas.
 
-- Um cliente confirmado; outros afetados são apenas hipótese.
-- Impacto 3/5 e Abrangência 1/5.
-- Urgência 5/5 definida pela triagem.
-- Resultado: 53/100 e início imediato.
-- Aprendizado: urgência máxima precisa de regra própria, sem elevar artificialmente os demais critérios.
+### Cenário B: Autorização de cirurgia eletiva de alta complexidade
+- **Contexto:** Solicitação de artroplastia sem laudo de imagem anexado e sem justificativa de indicação clínica exigida pelo protocolo regulatório.
+- **Enquadramento:** Retorno ao Solicitante por Dados Incompletos.
+- **Resultado:** O chamado não entra na fila técnica; retorna imediatamente ao solicitante com perguntas orientadas sobre os laudos ausentes.
+- **Aprendizado:** Bloquear chamados incompletos na entrada evita retrabalho e protege o tempo da equipe técnica.
 
-### Cenário B — Atualização de dashboard
+### Cenário C: Revisão do protocolo de teleconsulta para psicologia
+- **Contexto:** Proposta de melhoria no formulário de triagem para o próximo ciclo semestral, sem impacto na operação vigente.
+- **Enquadramento:** Backlog de Planejamento (P4).
+- **Resultado:** Direcionamento ao repositório de melhorias contínuas sem disputar prioridade com a fila de incidentes.
+- **Aprendizado:** Separar evolução programada de suporte operacional evita sobrecarga e mantém a fila diária limpa.
 
-- Prazo informado, mas ausência de dados necessários para critérios centrais.
-- Sem evidência crítica suficiente.
-- Resultado: devolução para complementação, sem score.
-- Aprendizado: demandas incompletas não devem entrar normalmente na fila de triagem.
+### Cenário D: Suspeita de lote com reação adversa (Farmacovigilância)
+- **Contexto:** Unidade de internação relata episódios de hipotensão súbita após infusão de lote de antibiótico com volume crescente de alertas.
+- **Enquadramento:** Alerta de Atenção Imediata (Triagem Humana Imediata).
+- **Resultado:** Alerta preventivo acionado para farmacovigilância e equipe médica, com análise humana imediata mesmo antes do preenchimento formal de todos os campos.
+- **Aprendizado:** A falta de dados administrativos nunca deve atrasar a contenção de um risco sanitário em potencial.
 
-### Cenário C — Análise de nova funcionalidade
+## Conclusões da Validação
 
-- Natureza planejada e sem necessidade operacional imediata.
-- Resultado: backlog, sem aplicação forçada da matriz operacional.
-- Aprendizado: nem toda demanda precisa receber score.
-
-### Cenário D — Aumento de lentidão
-
-- Aumento de relatos e crescimento contínuo, mas dados centrais incompletos.
-- Resultado: triagem humana imediata, sem score e sem confirmação automática de incidente.
-- Aprendizado: a ausência de informações não pode ocultar indícios potencialmente críticos.
-
-## Redesenho resultante
-
-O teste levou à substituição de uma matriz universal por um processo com quatro rotas. SLA e Agravamento foram retirados do score e transformados em pontos de conferência. Também foram separadas as visões do solicitante e da triagem.
-
-## Limite da validação
-
-Os resultados confirmam a coerência lógica da V1 em cenários simulados. Não representam validação estatística, implantação real ou desempenho comprovado em ambiente produtivo.
-
+A evolução do projeto confirmou que filas operacionais eficientes dispensam cálculos artificiais de pontos. O modelo de matriz de severidade (P1 a P4) combinado com rotas claras e supervisão humana (Human-in-the-Loop) oferece maior clareza, transparência e segurança para a tomada de decisão.
