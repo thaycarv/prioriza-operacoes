@@ -9,7 +9,7 @@
 ---
 
 ### ✅ Como foi validado?
-- [x] Teste de cálculo determinístico da matriz ponderada (0 a 100 pontos)
+- [x] Validação da matriz de severidade (P1 a P4) e enquadramento de SLAs
 - [x] Validação visual nos temas e responsividade
 - [x] Teste funcional das 4 rotas de encaminhamento e supervisão humana
 
