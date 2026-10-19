@@ -572,7 +572,7 @@ body {
   background: var(--green);
   color: white;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   padding: 12px 20px;
