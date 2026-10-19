@@ -355,16 +355,47 @@ body {
 /* Panels & Grid (Centralizados) */
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 22px;
   align-items: start;
-  max-width: 1140px;
   margin: 0 auto;
 }
 
-.grid.view-requester .result-panel {
-  opacity: 0.85;
+/* Visao do Solicitante: Formulario centralizado no meio da pagina */
+.grid.view-requester {
+  display: flex;
+  justify-content: center;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
 }
+
+.grid.view-requester .form-panel {
+  width: 100%;
+  display: block;
+}
+
+.grid.view-requester .result-panel {
+  display: none !important;
+}
+
+/* Visao da Triagem: Painel de analise centralizado no meio da pagina */
+.grid.view-analyst {
+  display: flex;
+  justify-content: center;
+  max-width: 760px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.grid.view-analyst .result-panel {
+  width: 100%;
+  display: block;
+}
+
+.grid.view-analyst .form-panel {
+  display: none !important;
+}
+
 
 .panel {
   background: var(--card);
