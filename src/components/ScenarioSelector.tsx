@@ -6,7 +6,7 @@ export const scenarioData: Record<
   { form: DemandForm; badge: string; description: string }
 > = {
   A: {
-    badge: "Crítico P1 (Fast Track)",
+    badge: "Crítico P1 (Ação Imediata)",
     description: "Bloqueio na dispensação de quimioterápico (Severidade P1 com início imediato)",
     form: {
       title: "Bloqueio na dispensação de quimioterápico",
