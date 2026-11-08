@@ -24,10 +24,10 @@ Em programas sociais com múltiplos polos e cooperativas atendidas, tudo chega r
 
 | Rota de Encaminhamento | Situação no Polo Comunitário | Tratamento Operacional no RadarSocial |
 | :--- | :--- | :--- |
-| **Fila de Ação Imediata (P1)** | Pane elétrica, parada total de polo ou risco sanitário | Acionamento prioritário com atendimento técnico imediato (**SLA: até 1 hora**). |
-| **Fila Operacional Regular (P2/P3)** | Demanda qualificada com processo operando ou contorno viável | Organização na fila conforme o impacto (**P2: até 4 horas** / **P3: no mesmo dia**). |
-| **Retorno Guiado ao Solicitante** | Falta de 3 cotações, NFs anteriores ou laudos exigidos pelo MROSC | A demanda não sobrecarrega a coordenação; retorna com perguntas orientadas e requisitos claros. |
-| **Backlog Estratégico (P4)** | Proposta de expansão ou melhoria de longo prazo (ex: turno noturno) | Registrada para análise orçamentária no próximo ciclo semestral do RadarSocial. |
+| **Fila de Atendimento Imediato (P1)** | Pane elétrica, parada total de polo ou risco sanitário | Início imediato do atendimento técnico (**SLA: até 1 hora**). |
+| **Fila Regular de Atendimento (P2/P3)** | Demanda com dados completos e processo operando com contorno | Organização na fila regular conforme impacto (**P2: até 4h** / **P3: no mesmo dia**). |
+| **Retorno com Orientações** | Faltam cotações de mercado, notas fiscais ou dados essenciais | Chamado retorna ao solicitante com orientações objetivas do que falta anexar. |
+| **Backlog de Planejamento (P4)** | Demanda de melhoria ou expansão sem urgência imediata | Registrada para o próximo ciclo de planejamento e orçamento semestral. |
 
 ---
 
@@ -48,16 +48,16 @@ O cockpit permite simular 4 desafios reais do portfólio de projetos do RadarSoc
 
 1. **Cenário A — Pane Elétrica e Queda de Link no Polo Digital Norte (Inclusão Digital):**
    * Curto-circuito interrompeu 20 computadores a poucas horas de oficina certificadora de 40 jovens.
-   * *Enquadramento:* **Fila de Ação Imediata (P1)** com SLA de 1h para manutenção emergencial.
+   * *Enquadramento:* **Fila de Atendimento Imediato (P1)** com SLA de 1h para manutenção emergencial.
 2. **Cenário B — Solicitação de Adiantamento de Insumos sem 3 Cotações (Agricultura Familiar):**
    * Cooperativa Terra Viva pede R$ 14.500 após vendaval, sem anexar cotações ou NFs exigidas pelo MROSC.
-   * *Enquadramento:* **Retorno Guiado ao Solicitante** para evitar glosas na prestação de contas.
+   * *Enquadramento:* **Retorno com Orientações** para evitar glosas na prestação de contas.
 3. **Cenário C — Expansão Noturna do Ateliê Comunitário (Empreendedorismo Feminino):**
    * Coletivo propõe turma noturna de costura para mães que trabalham de dia. Aulas diurnas normais.
-   * *Enquadramento:* **Backlog Estratégico (P4)** para o planejamento do próximo ciclo semestral.
+   * *Enquadramento:* **Backlog de Planejamento (P4)** para o planejamento do próximo ciclo semestral.
 4. **Cenário D — Inconformidade Sanitária de Geleias - RDC 727 (Alimentação Saudável):**
    * Fiscalização apontou ausência de rotulagem nutricional e alérgenos em 150 potes artesanais.
-   * *Enquadramento:* **Triagem Imediata de Risco Sanitário** com acionamento da Nutricionista/Eng. de Produção.
+   * *Enquadramento:* **Atenção Imediata** com acionamento técnico da equipe de nutrição e operações.
 
 ---
 

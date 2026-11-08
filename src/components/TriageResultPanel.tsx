@@ -53,8 +53,8 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
       <div className="panel-title">
         <span className="step-badge">2</span>
         <div>
-          <b>Triagem Operacional & Enquadramento</b>
-          <small>Direcionamento na esteira do RadarSocial e validação de severidade</small>
+          <b>Resultado da Triagem</b>
+          <small>Classificação de prioridade e direcionamento</small>
         </div>
       </div>
 
@@ -65,30 +65,30 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
           </div>
           <b>Formulário alterado</b>
           <p>
-            Envie a solicitação ou selecione um cenário demonstrativo para visualizar a triagem.
+            Envie a solicitação ou escolha um dos cenários acima para ver a análise.
           </p>
         </div>
       ) : (
         <>
-          {/* Banner de Rota Recomendada */}
+          {/* Banner de Rota */}
           <div className={`route ${result.route}`}>
             <div className="route-header">
               <div className="route-header-left">
                 {getRouteIcon(result.route)}
                 <span className="route-badge">{result.route.toUpperCase()}</span>
               </div>
-              <small>ENCAMINHAMENTO RECOMENDADO</small>
+              <small>ENCAMINHAMENTO</small>
             </div>
             <h3>{result.routeTitle}</h3>
             <p>{result.routeDescription}</p>
           </div>
 
-          {/* Dados Ausentes (Poka-Yoke do Retorno Guiado) */}
+          {/* Dados Ausentes */}
           {result.missingFields.length > 0 && (
             <div className="missing-card">
               <div className="missing-header">
                 <AlertOctagon className="missing-icon" aria-hidden="true" />
-                <b>Requisitos essenciais ausentes para aprovação:</b>
+                <b>Informações que estão faltando:</b>
               </div>
               <ul className="missing-list">
                 {result.missingFields.map((field, idx) => (
@@ -98,41 +98,40 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
             </div>
           )}
 
-          {/* Alerta de Triagem Imediata por Risco */}
+          {/* Alerta de Urgência */}
           {result.route === "triage" && (
             <div className="urgency-rule warning-rule">
               <div className="urgency-header-bar">
                 <AlertTriangle className="warning-icon" aria-hidden="true" />
-                <small>ALERTA DE ATENÇÃO IMEDIATA</small>
+                <small>ATENÇÃO IMEDIATA</small>
               </div>
-              <b>Possível incidente com risco regulatório ou paralisação</b>
+              <b>Risco de paralisação ou pendência sanitária (RDC 727)</b>
               <p>
-                O relato aponta risco iminente ou pendência sanitária (ex: Anvisa RDC 727). A
-                coordenação técnica deve intervir de imediato, sem aguardar trâmites burocráticos.
+                A equipe técnica deve verificar o caso imediatamente, sem aguardar a complementação de dados.
               </p>
             </div>
           )}
 
-          {/* Se Rota for Fila Operacional Qualificada */}
+          {/* Se Rota for Fila Operacional */}
           {result.route === "queue" && (
             <>
               {/* Definição de Urgência pelo Operador */}
               <div className="urgency-selector-card">
                 <div className="urgency-header">
-                  <b>Validação do prazo de início pela triagem</b>
-                  <small>Ajuste de SLA pelo operador</small>
+                  <b>Prazo de início do atendimento (SLA)</b>
+                  <small>Ajuste manual da equipe</small>
                 </div>
                 <label className="urgency-label">
-                  Janela para início do atendimento técnico:
+                  Tempo para início do atendimento:
                   <select
                     value={form.actionWindow}
                     onChange={(e) => onChangeUrgency(e.target.value)}
                   >
-                    <option value="5">Imediato (Urgência máxima / P1)</option>
-                    <option value="4">Em até 1 hora (Alta prioridade / P2)</option>
-                    <option value="3">No mesmo dia (Prioridade regular / P3)</option>
-                    <option value="2">Em até 3 dias úteis (Rotina / P3)</option>
-                    <option value="1">Fluxo regular ou backlog (P4)</option>
+                    <option value="5">Imediato (Urgência P1 - até 1 hora)</option>
+                    <option value="4">Alta prioridade (P2 - até 4 horas)</option>
+                    <option value="3">Prioridade regular (P3 - no mesmo dia)</option>
+                    <option value="2">Rotina (P3 - até 3 dias úteis)</option>
+                    <option value="1">Planejamento (P4 - próximo ciclo)</option>
                   </select>
                 </label>
               </div>
@@ -142,17 +141,16 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                 <div className="urgency-rule">
                   <div className="urgency-header-bar">
                     <Clock className="warning-icon text-red" aria-hidden="true" />
-                    <small>REGRA DE URGÊNCIA MÁXIMA</small>
+                    <small>URGÊNCIA MÁXIMA</small>
                   </div>
-                  <b>Atendimento com início imediato (SLA: até 1 hora)</b>
+                  <b>Início imediato (SLA: até 1 hora)</b>
                   <p>
-                    A urgência máxima exige acionamento prioritário da equipe técnica de manutenção ou
-                    coordenação de campo do RadarSocial.
+                    Requer acionamento prioritário da equipe técnica de manutenção ou coordenação de campo.
                   </p>
                 </div>
               )}
 
-              {/* Cartão Executivo de Severidade Operacional */}
+              {/* Cartão de Severidade */}
               <div className={`severity-card ${result.priority.badgeClass}`}>
                 <div className="severity-card-top">
                   <div className="severity-badge-box">
@@ -167,16 +165,16 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
                   </div>
                 </div>
                 <p className="severity-rationale">
-                  <b>Diagnóstico da Triagem:</b> {result.priority.rationale}
+                  <b>Motivo da Classificação:</b> {result.priority.rationale}
                 </p>
               </div>
             </>
           )}
 
-          {/* Destaques e Apoio à Triagem com IA */}
+          {/* Destaques e Apoio à Triagem */}
           <AiAssistantCard aiAnalysis={aiAnalysis} />
 
-          {/* Barra de Ações Finais (Human-in-the-Loop) */}
+          {/* Barra de Ações Finais */}
           <div className="triage-actions-bar">
             <button
               type="button"
@@ -184,16 +182,16 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
               onClick={onToggleReviewed}
             >
               <CheckCircle2 className="btn-icon" aria-hidden="true" />
-              {reviewed ? "Triagem Homologada pelo Analista" : "Validar Triagem (Human-in-the-Loop)"}
+              {reviewed ? "Triagem Aprovada" : "Aprovar Triagem"}
             </button>
             <button
               type="button"
               className="export-btn"
               onClick={onOpenExport}
-              title="Copiar parecer estruturado da decisão"
+              title="Copiar resumo da decisão"
             >
               <FileText className="btn-icon" aria-hidden="true" />
-              Copiar Parecer
+              Copiar Resumo
             </button>
           </div>
         </>

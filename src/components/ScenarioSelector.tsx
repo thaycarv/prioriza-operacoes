@@ -10,19 +10,18 @@ import {
 
 export const scenarioData: Record<
   string,
-  { form: DemandForm; badge: string; description: string; icon: string }
+  { form: DemandForm; badge: string; description: string }
 > = {
   A: {
-    badge: "Crítico P1 (Ação Imediata)",
-    description: "Pane elétrica e queda de link no Polo Digital (Inclusão Digital)",
-    icon: "AlertOctagon",
+    badge: "Crítico P1",
+    description: "Queda de energia e internet no Polo Digital",
     form: {
-      title: "Interrupção de energia e link de rede no Polo Digital Norte",
+      title: "Queda de energia e internet no Polo Digital Norte",
       origin: "Polo Comunitário Digital",
       kind: "Incidente de Infraestrutura / TI",
       perceived: "Crítica",
       description:
-        "Curto-circuito no quadro de distribuição secundário interrompeu a energia de 20 computadores e travou o link de internet a poucas horas da oficina certificadora de 40 jovens da comunidade. Sem contorno provisório e com risco de queima de placas.",
+        "Curto-circuito no quadro elétrico paralisou 20 computadores a poucas horas da aula de 40 jovens da comunidade. Sem contorno provisório e com risco de queima de placas.",
       process: "interrompido",
       workaround: "nao",
       affected: "40",
@@ -32,16 +31,15 @@ export const scenarioData: Record<
     },
   },
   B: {
-    badge: "Dados Incompletos",
-    description: "Pedido de adiantamento sem 3 cotações MROSC (Agricultura Familiar)",
-    icon: "FileQuestion",
+    badge: "Faltam Dados",
+    description: "Adiantamento sem cotações de fornecedores",
     form: {
-      title: "Solicitação de adiantamento emergencial para insumos agrícolas",
+      title: "Solicitação de adiantamento para insumos agrícolas",
       origin: "Cooperativa Agrícola / Produção",
       kind: "Solicitação Financeira / Remanejamento",
       perceived: "Alta",
       description:
-        "Cooperativa solicita liberação emergencial de R$ 14.500 para compra de mudas e adubo orgânico após vendaval. O pedido não contém as 3 cotações de fornecedores locais nem a prestação de contas das notas fiscais do repasse anterior exigidas pelo MROSC.",
+        "Cooperativa solicita liberação de R$ 14.500 para mudas após vendaval, mas não anexou as 3 cotações de mercado nem as notas fiscais da remessa anterior exigidas pelo termo de colaboração.",
       process: "dificuldade",
       workaround: "nao-sei",
       affected: "",
@@ -51,16 +49,15 @@ export const scenarioData: Record<
     },
   },
   C: {
-    badge: "Melhoria Planejada",
-    description: "Abertura de turma noturna no Ateliê (Empreendedorismo Feminino)",
-    icon: "CalendarClock",
+    badge: "Planejamento P4",
+    description: "Expansão de turma noturna no ateliê",
     form: {
-      title: "Expansão da grade horária do Ateliê Comunitário para turno noturno",
+      title: "Abertura de turma noturna no Ateliê Comunitário",
       origin: "Ateliê / Coletivo Produtivo",
       kind: "Melhoria de Escopo / Expansão",
       perceived: "Moderada",
       description:
-        "Liderança do coletivo propõe abertura de turma noturna de corte e costura para mães que trabalham durante o dia. As oficinas regulares diurnas continuam funcionando normalmente sem impacto. Demanda direcionada para análise no próximo ciclo semestral.",
+        "Liderança do coletivo propõe criar turma noturna de corte e costura para mães que trabalham de dia. Aulas diurnas normais sem impacto. Demanda para análise no próximo ciclo semestral.",
       process: "nao-afetado",
       workaround: "sim",
       affected: "15",
@@ -70,16 +67,15 @@ export const scenarioData: Record<
     },
   },
   D: {
-    badge: "Sinal de Risco Sanitário",
-    description: "Inconformidade de rotulagem de geleias - RDC 727 (Alimentação Saudável)",
-    icon: "ShieldAlert",
+    badge: "Atenção Imediata",
+    description: "Alerta de rotulagem sanitária (RDC 727)",
     form: {
-      title: "Inconformidade sanitária e suspensão cautelar de lote de geleias (RDC 727)",
+      title: "Notificação de rotulagem em lote de geleias (RDC 727)",
       origin: "Fiscalização / Vigilância Sanitária",
       kind: "Risco Regulatório & Sanitário (Anvisa)",
       perceived: "Crítica",
       description:
-        "Notificação prévia da vigilância sanitária apontou ausência de tabela nutricional obrigatória e declaração de alérgenos conforme a RDC nº 727/2022 da Anvisa em 150 potes de geleia artesanal prontos para distribuição escolar. Risco iminente de descarte do lote.",
+        "Fiscalização apontou ausência de tabela nutricional obrigatória e declaração de alérgenos (RDC nº 727/2022) em 150 potes de geleia artesanal prontos para entrega escolar. Risco de perda do lote.",
       process: "dificuldade",
       workaround: "nao-sei",
       affected: "",
@@ -145,10 +141,10 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
         >
           <div className="sample-btn-header">
             <Sparkles className="scenario-icon text-emerald" aria-hidden="true" />
-            <span className="sample-badge">Simulação Livre</span>
+            <span className="sample-badge">Teste Livre</span>
           </div>
           <b>Formulário em Branco</b>
-          <small>Preencher dados manuais para testar regras operacionais</small>
+          <small>Preencher dados manuais do zero</small>
         </button>
       </div>
     </div>

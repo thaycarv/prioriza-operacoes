@@ -42,14 +42,13 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
           <div className="confirmation-icon-wrapper">
             <CheckCircle2 className="confirmation-icon-svg" aria-hidden="true" />
           </div>
-          <p className="eyebrow">SOLICITAÇÃO PROTOCOLADA COM SUCESSO</p>
-          <h3>Demanda registrada no ecossistema RadarSocial.</h3>
+          <p className="eyebrow">SOLICITAÇÃO ENVIADA</p>
+          <h3>Chamado registrado com sucesso.</h3>
           <p>
-            Ela foi direcionada à esteira de triagem operacional. A coordenação técnica
-            analisará os requisitos, o MROSC e a conformidade sanitária antes da liberação.
+            A demanda já está na fila de triagem da equipe técnica para avaliação de prioridade e prazo.
           </p>
           <div className="protocol-box">
-            <small>CÓDIGO DO PROTOCOLO OPERACIONAL</small>
+            <small>NÚMERO DO PROTOCOLO</small>
             <b>{protocol}</b>
           </div>
           <button type="button" className="secondary" onClick={onReset}>
@@ -62,17 +61,17 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
           <div className="panel-title">
             <span className="step-badge">1</span>
             <div>
-              <b>Entrada da Demanda Operacional</b>
-              <small>Fatos observáveis e evidências fornecidas pelo polo ou comunidade</small>
+              <b>Dados da Solicitação</b>
+              <small>Preencha as informações do pedido ou ocorrência</small>
             </div>
           </div>
 
           <label>
-            <HelpLabel help="Resuma objetivamente o ocorrido no polo comunitário ou cooperativa.">
-              Título da demanda ou incidente
+            <HelpLabel help="Resuma em poucas palavras o que está acontecendo.">
+              Título da solicitação
             </HelpLabel>
             <input
-              placeholder="Ex: Interrupção de energia e link de rede no Polo Digital Norte"
+              placeholder="Ex: Queda de energia e internet no Polo Digital Norte"
               value={form.title}
               onChange={(e) => onChange("title", e.target.value)}
             />
@@ -80,8 +79,8 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
 
           <div className="cols">
             <label>
-              <HelpLabel help="Indique a entidade de origem dentro do ecossistema de projetos do RadarSocial.">
-                Polo ou entidade de origem
+              <HelpLabel help="Polo ou comunidade de onde partiu a solicitação.">
+                Polo ou setor de origem
               </HelpLabel>
               <select
                 value={form.origin}
@@ -90,7 +89,7 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
                 <option value="Polo Comunitário Digital">Polo Comunitário Digital</option>
                 <option value="Cooperativa Agrícola / Produção">Cooperativa Agrícola / Produção</option>
                 <option value="Ateliê / Coletivo Produtivo">Ateliê / Coletivo Produtivo</option>
-                <option value="Comitê Gestor / PMO RadarSocial">Comitê Gestor / PMO RadarSocial</option>
+                <option value="Comitê Gestor / PMO">Comitê Gestor / PMO</option>
                 <option value="Auditoria / Prestação de Contas">Auditoria / Prestação de Contas</option>
                 <option value="Fiscalização / Vigilância Sanitária">Fiscalização / Vigilância Sanitária</option>
                 <option value="Liderança Comunitária">Liderança Comunitária</option>
@@ -98,8 +97,8 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
             </label>
 
             <label>
-              <HelpLabel help="Indique a natureza aparente da solicitação. A triagem confirmará a rota final.">
-                Tipo da demanda
+              <HelpLabel help="Natureza da solicitação para triagem inicial.">
+                Tipo da solicitação
               </HelpLabel>
               <select
                 value={form.kind}
@@ -115,12 +114,12 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
           </div>
 
           <label>
-            <HelpLabel help="Descreva com fatos concretos: o que aconteceu, quantidade de beneficiários ou insumos atingidos e riscos observados.">
-              Descrição com fatos conhecidos
+            <HelpLabel help="Descreva com fatos: o que houve, quando começou e impactos práticos.">
+              Descrição do ocorrido
             </HelpLabel>
             <textarea
               rows={4}
-              placeholder="Descreva detalhadamente o evento, equipamentos afetados ou motivo do pedido..."
+              placeholder="Descreva o que aconteceu de forma objetiva..."
               value={form.description}
               onChange={(e) => onChange("description", e.target.value)}
             />
@@ -128,31 +127,31 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
 
           <div className="cols">
             <label>
-              <HelpLabel help="Informe se a rotina ou as aulas continuam acontecendo ou se houve paralisação total.">
-                Situação da operação no polo
+              <HelpLabel help="A rotina do polo parou totalmente ou segue com lentidão?">
+                Situação da operação
               </HelpLabel>
               <select
                 value={form.process}
                 onChange={(e) => onChange("process", e.target.value)}
               >
                 <option value="">Selecione</option>
-                <option value="interrompido">Interrompido (Parada total do polo)</option>
-                <option value="parcial">Parcialmente comprometido</option>
-                <option value="dificuldade">Funcionando com dificuldade / lentidão</option>
-                <option value="nao-afetado">Não afetado (Operação regular)</option>
+                <option value="interrompido">Interrompido (Parada total)</option>
+                <option value="parcial">Parcialmente afetado</option>
+                <option value="dificuldade">Funcionando com lentidão</option>
+                <option value="nao-afetado">Normal (Sem impacto)</option>
               </select>
             </label>
 
             <label>
-              <HelpLabel help="Existe procedimento provisório que permita continuar as atividades enquanto se resolve?">
-                Alternativa temporária (Contorno)
+              <HelpLabel help="Há procedimento provisório para trabalhar enquanto resolve?">
+                Existe alternativa temporária (contorno)?
               </HelpLabel>
               <select
                 value={form.workaround}
                 onChange={(e) => onChange("workaround", e.target.value)}
               >
                 <option value="">Selecione</option>
-                <option value="sim">Sim, existe contorno viável</option>
+                <option value="sim">Sim, existe contorno</option>
                 <option value="nao">Não existe contorno</option>
                 <option value="nao-sei">Não sei informar</option>
               </select>
@@ -161,50 +160,50 @@ export const IntakeForm: React.FC<IntakeFormProps> = ({
 
           <div className="cols">
             <label>
-              <HelpLabel help="Informe a quantidade de alunos, famílias, máquinas ou unidades de produtos impactados.">
-                Afetados confirmados
+              <HelpLabel help="Número confirmado de alunos, máquinas ou famílias atingidas.">
+                Pessoas ou itens afetados
               </HelpLabel>
               <input
                 type="number"
                 min="0"
-                placeholder="Ex: 10, 40, 150..."
+                placeholder="Ex: 20"
                 value={form.affected}
                 onChange={(e) => onChange("affected", e.target.value)}
               />
             </label>
 
             <label>
-              <HelpLabel help="Indique se a ocorrência está estável, oscilando ou com novos relatos aumentando.">
+              <HelpLabel help="A ocorrência está estável ou aumentando?">
                 Tendência da ocorrência
               </HelpLabel>
               <select
                 value={form.trend}
                 onChange={(e) => onChange("trend", e.target.value)}
               >
-                <option value="desconhecida">Desconhecida / Não verificada</option>
+                <option value="desconhecida">Não verificada</option>
                 <option value="estavel">Estável</option>
                 <option value="oscilando">Oscilando / Intermitente</option>
-                <option value="aumentando">Aumentando rapidamente</option>
+                <option value="aumentando">Aumentando</option>
               </select>
             </label>
           </div>
 
           <label>
-            <HelpLabel help="Indique se existe meta de atendimento acordada no termo de colaboração ou contrato de manutenção.">
-              Existe SLA formal ou prazo acordado em termo/edital?
+            <HelpLabel help="Existe prazo formal fixado em contrato ou edital?">
+              Existe prazo ou SLA formal acordado?
             </HelpLabel>
             <select
               value={form.sla}
               onChange={(e) => onChange("sla", e.target.value)}
             >
-              <option value="sim">Sim, existe SLA acordado</option>
+              <option value="sim">Sim, existe prazo formal</option>
               <option value="nao">Não existe prazo formal</option>
-              <option value="nao-sei">Não sei / Não se aplica</option>
+              <option value="nao-sei">Não sei informar</option>
             </select>
           </label>
 
           <button className="primary" type="submit">
-            Protocolar solicitação na esteira
+            Enviar solicitação
             <ArrowRight className="btn-icon" aria-hidden="true" />
           </button>
         </>

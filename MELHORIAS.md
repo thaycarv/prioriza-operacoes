@@ -20,10 +20,10 @@ Este documento registra as auditorias e transformações realizadas no **RadarSo
 
 1. **Entrada Padronizada (Poka-Yoke):** O formulário exige dados observáveis e objetivos (número de pessoas/equipamentos afetados, situação do processo e existência de contorno temporário).
 2. **Motor Determinístico de Regras:**
-   - Detecta automaticamente se faltam requisitos formais do MROSC e aciona a rota de **Retorno Guiado ao Solicitante**, eliminando retrabalho do comitê.
-   - Identifica sinais de emergência física ou sanitária e encaminha à **Fila de Ação Imediata (P1)** com SLA de até 1 hora.
-   - Isola solicitações de longo prazo e as direciona ao **Backlog Estratégico (P4)**, evitando que concorram com incidentes críticos.
+   - Detecta automaticamente se faltam requisitos formais do MROSC e aciona a rota de **Retorno com Orientações**, eliminando retrabalho do comitê.
+   - Identifica sinais de emergência física ou sanitária e encaminha à **Fila de Atendimento Imediato (P1)** com SLA de até 1 hora.
+   - Isola solicitações de longo prazo e as direciona ao **Backlog de Planejamento (P4)**, evitando que concorram com incidentes críticos.
 3. **Apoio Analítico com Supervisão Humana:**
    - Separa o que é fato comprovado de hipóteses levantadas pelo solicitante.
    - Gera perguntas de esclarecimento em 1 clique para envio ao polo comunitário.
-   - Exige validação explícita do analista (**Human-in-the-Loop**) antes da conclusão da triagem.
+   - Exige aprovação explícita do analista de operações antes de liberar a priorização final.

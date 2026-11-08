@@ -10,7 +10,7 @@ import { ScenarioSelector, scenarioData } from "./components/ScenarioSelector";
 import { IntakeForm } from "./components/IntakeForm";
 import { TriageResultPanel } from "./components/TriageResultPanel";
 import { DecisionExportModal } from "./components/DecisionExportModal";
-import { User, SlidersHorizontal } from "lucide-react";
+import { FilePlus2, ListFilter } from "lucide-react";
 
 const emptyForm: DemandForm = {
   title: "",
@@ -74,13 +74,13 @@ export default function App() {
     setView("requester");
   };
 
-  // Protocolar formulário
+  // Enviar formulário
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
     setAnalyzed(true);
-    const newProtocol = `RS-OP-${new Date().getFullYear()}-${String(
+    const newProtocol = `RS-${new Date().getFullYear()}-${String(
       Date.now()
-    ).slice(-6)}`;
+    ).slice(-5)}`;
     setProtocol(newProtocol);
   };
 
@@ -88,7 +88,6 @@ export default function App() {
     <main className="app-shell">
       <Header />
 
-      {/* Espaço de Trabalho Executivo */}
       <section className="workspace">
         <div className="section-head">
           <div>
@@ -103,30 +102,30 @@ export default function App() {
           />
         </div>
 
-        {/* Alternador de Perfis (Human-in-the-Loop) */}
+        {/* Abas Limpas de Navegação */}
         <div
           className="view-switch"
-          aria-label="Alternar perfil de visualização"
+          aria-label="Alternar visualização"
         >
           <button
             type="button"
             className={view === "requester" ? "active" : ""}
             onClick={() => setView("requester")}
           >
-            <User className="btn-icon" aria-hidden="true" />
-            Visão do Polo / Solicitante (Entrada & Protocolo)
+            <FilePlus2 className="btn-icon" aria-hidden="true" />
+            Nova Solicitação
           </button>
           <button
             type="button"
             className={view === "analyst" ? "active" : ""}
             onClick={() => setView("analyst")}
           >
-            <SlidersHorizontal className="btn-icon" aria-hidden="true" />
-            Visão da Triagem (Coordenação & Severidade)
+            <ListFilter className="btn-icon" aria-hidden="true" />
+            Fila de Triagem
           </button>
         </div>
 
-        {/* Painéis Principais (Formulário + Painel de Triagem) */}
+        {/* Painéis Principais */}
         <div className={`grid view-${view}`}>
           <IntakeForm
             form={form}
@@ -149,7 +148,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Diretrizes e Princípios Operacionais do RadarSocial */}
+      {/* Diretrizes Operacionais */}
       <section className="about-section">
         <div className="about-header">
           <p className="eyebrow">{textos.apresentacao.categoria}</p>
@@ -169,7 +168,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Rodapé Institucional */}
+      {/* Rodapé */}
       <footer className="app-footer">
         <div className="footer-content">
           <b>{textos.rodape.titulo}</b>
@@ -178,7 +177,7 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Modal de Exportação do Parecer */}
+      {/* Modal de Exportação */}
       <DecisionExportModal
         isOpen={isExportModalOpen}
         onClose={() => setIsExportModalOpen(false)}

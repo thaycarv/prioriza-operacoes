@@ -24,9 +24,9 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
       <div className="assistant-card-header">
         <div className="assistant-title-box">
           <Sparkles className="assistant-icon" aria-hidden="true" />
-          <b>Apoio Analítico & Fatos do Relato</b>
+          <b>Resumo do Caso</b>
         </div>
-        <span className="assistant-pill">Copiloto Operacional</span>
+        <span className="assistant-pill">Análise Rápida</span>
       </div>
 
       <div className="assistant-summary">
@@ -35,7 +35,7 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
 
       <div className="assistant-grid">
         <div className="assistant-col">
-          <b>Fatos Confirmados na Demanda</b>
+          <b>O que foi confirmado</b>
           <ul>
             {aiAnalysis.facts.map((fact, idx) => (
               <li key={idx}>{fact}</li>
@@ -44,7 +44,7 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
         </div>
 
         <div className="assistant-col">
-          <b>Hipóteses a Validar com o Polo</b>
+          <b>O que precisa checar</b>
           <ul>
             {aiAnalysis.hypotheses.map((hyp, idx) => (
               <li key={idx}>{hyp}</li>
@@ -56,8 +56,8 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
       {aiAnalysis.suggestedQuestions.length > 0 && (
         <div className="assistant-questions">
           <div className="questions-header">
-            <b>Perguntas Recomendadas para o Solicitante:</b>
-            <small>Clique em uma pergunta para copiar e enviar ao polo</small>
+            <b>Perguntas para o solicitante:</b>
+            <small>Clique para copiar</small>
           </div>
           <div className="questions-list">
             {aiAnalysis.suggestedQuestions.map((q, idx) => (

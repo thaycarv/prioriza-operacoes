@@ -1,53 +1,53 @@
 // Textos institucionais e operacionais do RadarSocial Prioriza
-// Módulo de triagem operacional, governança de incidentes e qualificação de demandas do ecossistema RadarSocial.
+// Linguagem enxuta, corporativa, direta e sem jargões acadêmicos.
 
 export const textos = {
   marca: {
     nome: "RadarSocial Prioriza",
     sigla: "RS",
-    assinatura: "Triagem & Qualificação Operacional de Demandas",
-    modulo: "Módulo Integrado ao RadarSocial",
-    versao: "Cockpit Operacional",
+    assinatura: "Triagem e Direcionamento de Demandas",
+    modulo: "Módulo de Triagem",
+    versao: "Operações",
   },
 
   apresentacao: {
-    categoria: "TRIAGEM OPERACIONAL & GOVERNANÇA DE DEMANDAS",
-    titulo: "Qualificação inteligente de demandas e incidentes",
-    destaque: "Human-in-the-Loop",
+    categoria: "GESTÃO DE OPERAÇÕES",
+    titulo: "Triagem de Demandas e Incidentes",
+    destaque: "",
     descricao:
-      "Cockpit de triagem operacional conectado ao RadarSocial: separa urgências reais de infraestrutura e conformidade sanitária de solicitações rotineiras, cobrando requisitos obrigatórios do MROSC antes de abrir tarefas para o comitê gestor.",
+      "Organiza os pedidos e ocorrências dos polos comunitários: separa urgências de infraestrutura de pedidos rotineiros e confere dados essenciais antes de acionar a equipe.",
   },
 
   principios: [
     {
       numero: "01",
-      titulo: "Fatos Observáveis",
+      titulo: "Fatos Objetivos",
       descricao:
-        "Registrar o evento físico concreto ocorrido nos polos comunitários e o número real de beneficiários ou equipamentos afetados.",
+        "Registrar o que aconteceu na prática e quantas pessoas ou equipamentos foram afetados.",
     },
     {
       numero: "02",
-      titulo: "Retorno Guiado ao Solicitante",
+      titulo: "Retorno Orientado",
       descricao:
-        "Solicitações de recursos ou insumos sem cotações, notas fiscais ou laudos retornam imediatamente com orientações do MROSC, sem sobrecarregar a coordenação.",
+        "Pedidos que chegam sem documentos ou cotações básicas voltam ao solicitante com instruções claras, sem travar a equipe.",
     },
     {
       numero: "03",
-      titulo: "Matriz de Severidade com SLA (P1 a P4)",
+      titulo: "Prazos por Criticidade",
       descricao:
-        "A criticidade operacional define o tempo de início da resposta técnica (de até 1 hora a ciclos semestrais), mantendo a supervisão humana obrigatória em cada decisão.",
+        "A gravidade (P1 a P4) define o tempo de resposta, com validação do analista em cada decisão.",
     },
   ],
 
   demonstracao: {
-    categoria: "SIMULAÇÃO DO ECOSSISTEMA RADARSOCIAL",
-    titulo: "Cenários Operacionais da Carteira de Programas Sociais",
+    categoria: "EXEMPLOS PRÁTICOS",
+    titulo: "Cenários Comuns do Dia a Dia",
   },
 
   rodape: {
-    titulo: "RadarSocial Prioriza · Gestão de Operações e Eficiência de Processos",
+    titulo: "RadarSocial Prioriza",
     observacao:
-      "Módulo de triagem operacional desenvolvido por Thayâne Carvalho (Engenharia de Produção & Nutrição) para qualificar fluxos de entrada, gerenciar capacidade produtiva e eliminar retrabalho em programas sociais.",
-    competencias: "Engenharia de Processos • Triagem Operacional • Governança MROSC • Conformidade Sanitária (Anvisa) • Human-in-the-Loop",
+      "Ferramenta para organizar filas de atendimento, definir prioridades e reduzir retrabalho.",
+    competencias: "Thayâne Carvalho · Engenharia de Produção & Nutrição",
   },
 } as const;

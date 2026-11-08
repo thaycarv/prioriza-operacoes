@@ -13,7 +13,7 @@ export const PRIORITY_DEFINITIONS: Record<
   P1: {
     level: "P1",
     name: "Crítico (Ação Imediata)",
-    slaLabel: "Atendimento Imediato (até 1 hora)",
+    slaLabel: "Atendimento em até 1 hora",
     color: "#dc2626",
     badgeClass: "badge-p1",
   },
@@ -26,15 +26,15 @@ export const PRIORITY_DEFINITIONS: Record<
   },
   P3: {
     level: "P3",
-    name: "Médio / Regular",
+    name: "Prioridade Regular",
     slaLabel: "Atendimento no mesmo dia / até 24h",
     color: "#047857",
     badgeClass: "badge-p3",
   },
   P4: {
     level: "P4",
-    name: "Baixo / Planejamento",
-    slaLabel: "Fluxo regular / Ciclos de roadmap",
+    name: "Planejamento",
+    slaLabel: "Próximo ciclo semestral",
     color: "#475569",
     badgeClass: "badge-p4",
   },
@@ -65,13 +65,13 @@ export function determinePriority(
       "Demanda com risco iminente ou interrupção de serviço essencial sem plano de contorno.";
     if (criticalSignal) {
       rationale =
-        "Identificados termos de emergência técnica, risco sanitário ou paralisação direta da operação.";
+        "Risco sanitário, pane elétrica ou paralisação direta da atividade comunitária.";
     } else if (isInterrupted && hasNoWorkaround) {
       rationale =
-        "Operação ou polo comunitário 100% paralisado sem procedimento de contorno disponível.";
+        "Atividade no polo 100% paralisada sem procedimento de contorno disponível.";
     } else if (isImmediate) {
       rationale =
-        "Triagem operacional indicou necessidade de intervenção imediata (SLA até 1h).";
+        "Triagem indicou necessidade de intervenção imediata da equipe (SLA até 1h).";
     }
     return { ...base, rationale };
   }
@@ -94,7 +94,7 @@ export function determinePriority(
         "Operação parcialmente comprometida sem contorno provisório identificado.";
     } else if (isInterrupted) {
       rationale =
-        "Processo interrompido, mas mitigado temporariamente por procedimento de contorno.";
+        "Processo interrompido, mitigado temporariamente por procedimento de contorno.";
     }
     return { ...base, rationale };
   }
@@ -110,7 +110,7 @@ export function determinePriority(
     return {
       ...base,
       rationale:
-        "Demanda de evolução ou expansão programada, sem impacto em atendimentos ou turmas vigentes.",
+        "Demanda de melhoria ou expansão programada, sem impacto nas atividades vigentes.",
     };
   }
 
@@ -119,7 +119,7 @@ export function determinePriority(
   return {
     ...base,
     rationale:
-      "Dificuldade operacional com contorno viável ou solicitação de rotina em polo comunitário.",
+      "Dificuldade operacional com contorno viável ou solicitação rotineira de polo comunitário.",
   };
 }
 
@@ -254,39 +254,39 @@ export function evaluateDemand(form: DemandForm): TriageResult {
   ) {
     return {
       route: "backlog",
-      routeTitle: "Direcionar ao Backlog Estratégico",
+      routeTitle: "Backlog de Planejamento",
       routeDescription:
-        "Demanda planejável de melhoria ou expansão. Não concorre na fila de incidentes operacionais imediatos.",
+        "Demanda de melhoria ou expansão. Registrada para o próximo ciclo de planejamento semestral.",
       missingFields: [],
       criticalSignal: false,
       priority: {
         ...PRIORITY_DEFINITIONS.P4,
         rationale:
-          "Item de melhoria registrado para ciclos futuros de planejamento semestral.",
+          "Item registrado para o próximo ciclo de planejamento e orçamento.",
       },
       factors,
       worseningMarker: "Não aplicável a itens planejados",
-      worseningAction: "Priorizar nos ciclos de planejamento e orçamento do RadarSocial.",
+      worseningAction: "Priorizar nos ciclos de planejamento e orçamento.",
     };
   }
 
   // Validação de completude
   const missing: string[] = [];
-  if (!form.title.trim()) missing.push("Título da demanda");
-  if (!form.description.trim()) missing.push("Descrição com fatos conhecidos");
-  if (!form.process) missing.push("Situação atual do processo");
-  if (!form.workaround) missing.push("Informação sobre alternativa temporária");
+  if (!form.title.trim()) missing.push("Título da solicitação");
+  if (!form.description.trim()) missing.push("Descrição do ocorrido");
+  if (!form.process) missing.push("Situação atual da operação");
+  if (!form.workaround) missing.push("Alternativa temporária (contorno)");
   if (!form.affected || form.affected.trim() === "")
-    missing.push("Quantidade confirmada de afetados");
+    missing.push("Pessoas ou itens afetados");
 
   // Rota 2 ou Rota 3 quando incompleto
   if (missing.length > 0) {
     if (criticalSignal) {
       return {
         route: "triage",
-        routeTitle: "Triagem Imediata de Risco Operacional",
+        routeTitle: "Atenção Imediata",
         routeDescription:
-          "Sinais de criticidade detectados com dados incompletos. A análise humana da coordenação inicia de imediato enquanto se solicita complementação técnica.",
+          "Sinais de risco identificados com dados incompletos. A equipe deve verificar o caso imediatamente.",
         missingFields: missing,
         criticalSignal: true,
         priority: {
@@ -301,9 +301,9 @@ export function evaluateDemand(form: DemandForm): TriageResult {
     }
     return {
       route: "return",
-      routeTitle: "Retorno Guiado ao Solicitante",
+      routeTitle: "Retorno com Orientações",
       routeDescription:
-        "Faltam dados essenciais para qualificar o impacto e conformidade (ex: cotações MROSC ou quantitativo). O pedido retorna com orientações claras, sem travar o comitê.",
+        "Faltam dados essenciais (ex: cotações ou notas fiscais). O pedido retorna ao solicitante para complementação.",
       missingFields: missing,
       criticalSignal: false,
       priority: {
@@ -330,21 +330,21 @@ export function evaluateDemand(form: DemandForm): TriageResult {
 
   const worseningAction =
     form.trend === "aumentando"
-      ? "Avaliar acionamento preventivo de suporte técnico especializado."
+      ? "Avaliar acionamento preventivo de suporte técnico."
       : form.trend === "oscilando"
       ? "Monitorar estabilidade da operação nas próximas 4 horas."
       : form.trend === "estavel"
       ? "Manter acompanhamento padrão durante a resolução."
-      : "Confirmar com o polo comunitário se o sintoma se repetiu.";
+      : "Confirmar com o polo se o problema se repetiu.";
 
   const isP1 = priority.level === "P1";
   const routeTitle = isP1
-    ? "Fila de Ação Imediata (Severidade P1)"
-    : `Fila Operacional Qualificada (Severidade ${priority.level})`;
+    ? "Fila de Atendimento Imediato (P1)"
+    : `Fila Regular de Atendimento (${priority.level})`;
 
   const routeDescription = isP1
-    ? "Dados mínimos validados. Classificado como Incidente Crítico com início imediato do atendimento técnico (SLA até 1h)."
-    : `Dados mínimos validados. A demanda está organizada na fila regular conforme a matriz de criticidade (${priority.slaLabel}).`;
+    ? "Demanda crítica validada. Início imediato do atendimento técnico (SLA até 1h)."
+    : `Demanda validada. Organizada na fila regular de atendimento (${priority.slaLabel}).`;
 
   return {
     route: "queue",

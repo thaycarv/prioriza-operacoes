@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
       <div className="topbar-right">
         <span className="author-tag">
           <ShieldCheck className="author-icon" aria-hidden="true" />
-          Coordenação: Thayâne Carvalho
+          Thayâne Carvalho
         </span>
         <div className="topbar-tag">
           <span>{textos.marca.modulo}</span>

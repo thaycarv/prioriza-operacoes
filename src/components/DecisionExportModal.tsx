@@ -23,32 +23,31 @@ export const DecisionExportModal: React.FC<DecisionExportModalProps> = ({
 
   if (!isOpen) return null;
 
-  const exportText = `*Parecer de Triagem Operacional: RadarSocial Prioriza*
-Protocolo: ${protocol || "RS-OP-" + new Date().getFullYear() + "-DEMO"}
+  const exportText = `*Resumo da Triagem: RadarSocial Prioriza*
+Protocolo: ${protocol || "RS-" + new Date().getFullYear() + "-DEMO"}
 Data: ${new Date().toLocaleDateString("pt-BR")}
-Módulo: Triagem de Demandas & Incidentes Comunitários
 
-*1. Identificação da Solicitação:*
+*1. Identificação:*
 - Título: ${form.title || "Sem título"}
-- Origem no RadarSocial: ${form.origin} (${form.kind})
-- Volume Afetado: ${form.affected || "0"} confirmado(s)
-- Situação do Processo: ${form.process || "Não informado"}
-- Alternativa Temporária (Contorno): ${form.workaround}
+- Origem: ${form.origin} (${form.kind})
+- Afetados: ${form.affected || "0"} confirmado(s)
+- Situação: ${form.process || "Não informado"}
+- Contorno: ${form.workaround}
 
-*2. Enquadramento e Severidade Operacional:*
-- Rota de Encaminhamento: ${triage.routeTitle}
-- Nível de Criticidade: ${triage.priority.level} (${triage.priority.name})
-- Meta de Atendimento (SLA): ${triage.priority.slaLabel}
-- Parecer da Triagem: ${triage.priority.rationale}
+*2. Classificação da Triagem:*
+- Encaminhamento: ${triage.routeTitle}
+- Prioridade: ${triage.priority.level} (${triage.priority.name})
+- Prazo (SLA): ${triage.priority.slaLabel}
+- Justificativa: ${triage.priority.rationale}
 
-*3. Fatores Operacionais Analisados:*
+*3. Fatores Analisados:*
 ${triage.factors
   .map((f) => `- ${f.name}: ${f.status} (${f.detail})`)
   .join("\n")}
 
 ${
   aiAnalysis?.suggestedQuestions && aiAnalysis.suggestedQuestions.length > 0
-    ? `\n*Perguntas Recomendadas para o Solicitante (Polo/Cooperativa):*\n` +
+    ? `\n*Perguntas para o Solicitante:*\n` +
       aiAnalysis.suggestedQuestions.map((q) => `- ${q}`).join("\n")
     : ""
 }
@@ -66,7 +65,7 @@ ${
         <div className="modal-header">
           <div className="modal-header-title">
             <FileText className="modal-title-icon" aria-hidden="true" />
-            <h3>Parecer Estruturado de Triagem</h3>
+            <h3>Resumo da Triagem</h3>
           </div>
           <button className="modal-close" onClick={onClose} aria-label="Fechar modal">
             <X className="modal-close-icon" aria-hidden="true" />
@@ -74,7 +73,7 @@ ${
         </div>
 
         <p className="modal-desc">
-          Texto padronizado para anexação no dossiê do RadarSocial, atas de comitê ou despacho com lideranças de polo.
+          Texto pronto para copiar e enviar por e-mail, WhatsApp ou registrar no chamado.
         </p>
 
         <textarea
@@ -92,12 +91,12 @@ ${
             {copied ? (
               <>
                 <Check className="btn-icon" aria-hidden="true" />
-                Copiado com sucesso!
+                Copiado!
               </>
             ) : (
               <>
                 <Copy className="btn-icon" aria-hidden="true" />
-                Copiar Parecer
+                Copiar Resumo
               </>
             )}
           </button>
