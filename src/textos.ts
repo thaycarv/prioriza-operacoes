@@ -1,53 +1,34 @@
-// Textos institucionais e operacionais do RadarSocial Prioriza
-// Linguagem enxuta, corporativa, direta e sem jargões acadêmicos.
+// Textos operacionais do RadarSocial Prioriza
+// Linguagem enxuta, corporativa, direta e sem termos de vitrine/demonstração.
 
 export const textos = {
   marca: {
     nome: "RadarSocial Prioriza",
     sigla: "RS",
-    assinatura: "Triagem e Direcionamento de Demandas",
+    assinatura: "Gestão Operacional & Triagem de Demandas",
     modulo: "Módulo de Triagem",
     versao: "Operações",
   },
 
-  apresentacao: {
-    categoria: "GESTÃO DE OPERAÇÕES",
-    titulo: "Triagem de Demandas e Incidentes",
-    destaque: "",
-    descricao:
-      "Organiza os pedidos e ocorrências dos polos comunitários: separa urgências de infraestrutura de pedidos rotineiros e confere dados essenciais antes de acionar a equipe.",
+  fila: {
+    categoria: "FILA OPERACIONAL DOS POLOS",
+    titulo: "Chamados em Aberto",
+    subtitulo:
+      "Selecione uma ocorrência recebida para realizar a triagem técnica ou registre uma nova entrada.",
   },
 
-  principios: [
-    {
-      numero: "01",
-      titulo: "Fatos Objetivos",
-      descricao:
-        "Registrar o que aconteceu na prática e quantas pessoas ou equipamentos foram afetados.",
-    },
-    {
-      numero: "02",
-      titulo: "Retorno Orientado",
-      descricao:
-        "Pedidos que chegam sem documentos ou cotações básicas voltam ao solicitante com instruções claras, sem travar a equipe.",
-    },
-    {
-      numero: "03",
-      titulo: "Prazos por Criticidade",
-      descricao:
-        "A gravidade (P1 a P4) define o tempo de resposta, com validação do analista em cada decisão.",
-    },
-  ],
-
-  demonstracao: {
-    categoria: "EXEMPLOS PRÁTICOS",
-    titulo: "Cenários Comuns do Dia a Dia",
+  metricas: {
+    total: "4 chamados em fila",
+    criticos: "1 imediato (P1)",
+    documentos: "1 pendência MROSC",
+    sanitario: "1 risco sanitário",
+    planejamento: "1 planejamento (P4)",
   },
 
   rodape: {
     titulo: "RadarSocial Prioriza",
     observacao:
-      "Ferramenta para organizar filas de atendimento, definir prioridades e reduzir retrabalho.",
+      "Módulo de Triagem e Qualificação Operacional · Ecossistema RadarSocial",
     competencias: "Thayâne Carvalho · Engenharia de Produção & Nutrição",
   },
 } as const;

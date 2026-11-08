@@ -175,6 +175,60 @@ body {
   color: var(--ink);
 }
 
+.queue-header-titles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.queue-subtitle {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 4px 0 0;
+  max-width: 650px;
+}
+
+/* Quick Stats Row */
+.queue-stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 4px 0 14px;
+}
+
+.stat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--muted);
+  background: #ffffff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.stat-pill b {
+  color: var(--ink);
+}
+
+.stat-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dot-gray { background: #64748b; }
+.dot-red { background: #ef4444; }
+.dot-amber { background: #f59e0b; }
+.dot-orange { background: #ea580c; }
+.dot-blue { background: #3b82f6; }
+.dot-green { background: #10b981; }
+
 /* Scenario Selector (Centralizado) */
 .samples-container {
   display: flex;
@@ -240,6 +294,90 @@ body {
   justify-content: space-between;
   width: 100%;
   gap: 6px;
+}
+
+.ticket-id-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.ticket-polo-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-top: 2px;
+  line-height: 1.25;
+}
+
+.ticket-desc {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ticket-sla-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #64748b;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.sample-btn.active .ticket-id-tag b,
+.sample-btn.active .ticket-polo-name {
+  color: #ffffff;
+}
+
+.sample-btn.active .ticket-desc {
+  color: #cbd5e1;
+}
+
+.sample-btn.active .ticket-sla-tag {
+  background: rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.badge-red {
+  background: #fef2f2 !important;
+  color: #b91c1c !important;
+  border-color: #fecaca !important;
+}
+
+.badge-amber {
+  background: #fffbeb !important;
+  color: #b45309 !important;
+  border-color: #fde68a !important;
+}
+
+.badge-blue {
+  background: #eff6ff !important;
+  color: #1d4ed8 !important;
+  border-color: #bfdbfe !important;
+}
+
+.badge-orange {
+  background: #fff7ed !important;
+  color: #c2410c !important;
+  border-color: #fed7aa !important;
+}
+
+.badge-green {
+  background: #ecfdf5 !important;
+  color: #047857 !important;
+  border-color: #a7f3d0 !important;
 }
 
 .scenario-icon {

@@ -5,16 +5,29 @@ import {
   FileQuestion,
   CalendarClock,
   ShieldAlert,
-  Sparkles,
+  PlusCircle,
 } from "lucide-react";
 
-export const scenarioData: Record<
-  string,
-  { form: DemandForm; badge: string; description: string }
-> = {
+export interface OperationalTicketItem {
+  ticketNumber: string;
+  protocol: string;
+  polo: string;
+  badge: string;
+  badgeClass: string;
+  description: string;
+  slaTag: string;
+  form: DemandForm;
+}
+
+export const scenarioData: Record<string, OperationalTicketItem> = {
   A: {
-    badge: "Crítico P1",
-    description: "Queda de energia e internet no Polo Digital",
+    ticketNumber: "#2041",
+    protocol: "RS-2026-02041",
+    polo: "Polo Digital Norte",
+    badge: "P1 · Imediato",
+    badgeClass: "badge-red",
+    description: "Pane elétrica e indisponibilidade de internet",
+    slaTag: "40 alunos · SLA: 1h",
     form: {
       title: "Queda de energia e internet no Polo Digital Norte",
       origin: "Polo Comunitário Digital",
@@ -31,8 +44,13 @@ export const scenarioData: Record<
     },
   },
   B: {
-    badge: "Faltam Dados",
-    description: "Adiantamento sem cotações de fornecedores",
+    ticketNumber: "#2042",
+    protocol: "RS-2026-02042",
+    polo: "Cooperativa Terra Viva",
+    badge: "Pendente Doc",
+    badgeClass: "badge-amber",
+    description: "Adiantamento para insumos agrícolas",
+    slaTag: "Sem 3 cotações · MROSC",
     form: {
       title: "Solicitação de adiantamento para insumos agrícolas",
       origin: "Cooperativa Agrícola / Produção",
@@ -49,8 +67,13 @@ export const scenarioData: Record<
     },
   },
   C: {
-    badge: "Planejamento P4",
-    description: "Expansão de turma noturna no ateliê",
+    ticketNumber: "#2043",
+    protocol: "RS-2026-02043",
+    polo: "Ateliê Comunitário",
+    badge: "P4 · Planejamento",
+    badgeClass: "badge-blue",
+    description: "Expansão de turma noturna de costura",
+    slaTag: "15 inscritas · Ciclo Semestral",
     form: {
       title: "Abertura de turma noturna no Ateliê Comunitário",
       origin: "Ateliê / Coletivo Produtivo",
@@ -67,8 +90,13 @@ export const scenarioData: Record<
     },
   },
   D: {
-    badge: "Atenção Imediata",
-    description: "Alerta de rotulagem sanitária (RDC 727)",
+    ticketNumber: "#2044",
+    protocol: "RS-2026-02044",
+    polo: "Gastronomia Solidária",
+    badge: "Risco Sanitário",
+    badgeClass: "badge-orange",
+    description: "Notificação de rotulagem (RDC 727)",
+    slaTag: "150 potes · Anvisa",
     form: {
       title: "Notificação de rotulagem em lote de geleias (RDC 727)",
       origin: "Fiscalização / Vigilância Sanitária",
@@ -125,11 +153,15 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
               onClick={() => onSelectScenario(key)}
             >
               <div className="sample-btn-header">
-                {getIcon(key)}
-                <span className="sample-badge">{data.badge}</span>
+                <div className="ticket-id-tag">
+                  {getIcon(key)}
+                  <b>{data.ticketNumber}</b>
+                </div>
+                <span className={`sample-badge ${data.badgeClass}`}>{data.badge}</span>
               </div>
-              <b>Cenário {key}</b>
-              <small>{data.description}</small>
+              <span className="ticket-polo-name">{data.polo}</span>
+              <small className="ticket-desc">{data.description}</small>
+              <span className="ticket-sla-tag">{data.slaTag}</span>
             </button>
           );
         })}
@@ -140,11 +172,15 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
           onClick={onStartFreeTest}
         >
           <div className="sample-btn-header">
-            <Sparkles className="scenario-icon text-emerald" aria-hidden="true" />
-            <span className="sample-badge">Teste Livre</span>
+            <div className="ticket-id-tag">
+              <PlusCircle className="scenario-icon text-emerald" aria-hidden="true" />
+              <b>+ Novo</b>
+            </div>
+            <span className="sample-badge badge-green">Entrada Manual</span>
           </div>
-          <b>Formulário em Branco</b>
-          <small>Preencher dados manuais do zero</small>
+          <span className="ticket-polo-name">Nova Ocorrência</span>
+          <small className="ticket-desc">Registrar chamado do zero</small>
+          <span className="ticket-sla-tag">Formulário Limpo</span>
         </button>
       </div>
     </div>

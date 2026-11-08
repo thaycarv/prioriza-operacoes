@@ -10,7 +10,7 @@ describe("Motor de Triagem Operacional: RadarSocial Prioriza", () => {
     expect(PRIORITY_DEFINITIONS.P4.level).toBe("P4");
   });
 
-  it("Cenário A: deve enquadrar pane elétrica no Polo Digital como Fila de Atendimento Imediato (P1)", () => {
+  it("Chamado #2041: deve enquadrar pane elétrica no Polo Digital como Fila de Atendimento Imediato (P1)", () => {
     const result = evaluateDemand(scenarioData.A.form);
     expect(result.route).toBe("queue");
     expect(result.priority.level).toBe("P1");
@@ -19,14 +19,14 @@ describe("Motor de Triagem Operacional: RadarSocial Prioriza", () => {
     expect(result.routeTitle).toContain("Fila de Atendimento Imediato");
   });
 
-  it("Cenário B: deve direcionar pedido sem cotações para Retorno com Orientações", () => {
+  it("Chamado #2042: deve direcionar pedido sem cotações para Retorno com Orientações", () => {
     const result = evaluateDemand(scenarioData.B.form);
     expect(result.route).toBe("return");
     expect(result.missingFields).toContain("Pessoas ou itens afetados");
     expect(result.routeTitle).toContain("Retorno com Orientações");
   });
 
-  it("Cenário C: deve encaminhar expansão noturna de ateliê para Backlog de Planejamento", () => {
+  it("Chamado #2043: deve encaminhar expansão noturna de ateliê para Backlog de Planejamento", () => {
     const result = evaluateDemand(scenarioData.C.form);
     expect(result.route).toBe("backlog");
     expect(result.priority.level).toBe("P4");
@@ -34,7 +34,7 @@ describe("Motor de Triagem Operacional: RadarSocial Prioriza", () => {
     expect(result.routeTitle).toContain("Backlog de Planejamento");
   });
 
-  it("Cenário D: deve acionar Atenção Imediata para notificação de rotulagem sanitária Anvisa", () => {
+  it("Chamado #2044: deve acionar Atenção Imediata para notificação de rotulagem sanitária Anvisa", () => {
     const result = evaluateDemand(scenarioData.D.form);
     expect(result.route).toBe("triage");
     expect(result.criticalSignal).toBe(true);

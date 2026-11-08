@@ -31,7 +31,7 @@ export default function App() {
   const [analyzed, setAnalyzed] = useState(true);
   const [reviewed, setReviewed] = useState(false);
   const [view, setView] = useState<"requester" | "analyst">("requester");
-  const [protocol, setProtocol] = useState("");
+  const [protocol, setProtocol] = useState(scenarioData.A.protocol);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   // Motor de regras e triagem
@@ -56,16 +56,16 @@ export default function App() {
     setReviewed(false);
   };
 
-  // Selecionar cenário demonstrativo
+  // Selecionar chamado na fila
   const handleSelectScenario = (key: string) => {
-    const selected = scenarioData[key].form;
-    setForm(selected);
+    const selected = scenarioData[key];
+    setForm(selected.form);
+    setProtocol(selected.protocol);
     setAnalyzed(true);
     setReviewed(false);
-    setProtocol("");
   };
 
-  // Limpar formulário para teste livre
+  // Limpar formulário para novo chamado manual
   const handleStartFreeTest = () => {
     setForm({ ...emptyForm });
     setProtocol("");
@@ -74,7 +74,7 @@ export default function App() {
     setView("requester");
   };
 
-  // Enviar formulário
+  // Registrar ocorrência
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
     setAnalyzed(true);
@@ -89,10 +89,35 @@ export default function App() {
       <Header />
 
       <section className="workspace">
+        {/* Cabeçalho da Fila de Chamados dos Polos */}
         <div className="section-head">
-          <div>
-            <p className="eyebrow">{textos.demonstracao.categoria}</p>
-            <h2>{textos.demonstracao.titulo}</h2>
+          <div className="queue-header-titles">
+            <p className="eyebrow">{textos.fila.categoria}</p>
+            <h2>{textos.fila.titulo}</h2>
+            <p className="queue-subtitle">{textos.fila.subtitulo}</p>
+          </div>
+
+          <div className="queue-stats-row">
+            <span className="stat-pill">
+              <span className="stat-dot dot-gray"></span>
+              <b>4</b> chamados na fila
+            </span>
+            <span className="stat-pill">
+              <span className="stat-dot dot-red"></span>
+              <b>1</b> imediato (P1)
+            </span>
+            <span className="stat-pill">
+              <span className="stat-dot dot-amber"></span>
+              <b>1</b> pendência MROSC
+            </span>
+            <span className="stat-pill">
+              <span className="stat-dot dot-orange"></span>
+              <b>1</b> risco sanitário
+            </span>
+            <span className="stat-pill">
+              <span className="stat-dot dot-blue"></span>
+              <b>1</b> planejamento (P4)
+            </span>
           </div>
 
           <ScenarioSelector
@@ -103,10 +128,7 @@ export default function App() {
         </div>
 
         {/* Abas Limpas de Navegação */}
-        <div
-          className="view-switch"
-          aria-label="Alternar visualização"
-        >
+        <div className="view-switch" aria-label="Alternar visualização">
           <button
             type="button"
             className={view === "requester" ? "active" : ""}
@@ -148,27 +170,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Diretrizes Operacionais */}
-      <section className="about-section">
-        <div className="about-header">
-          <p className="eyebrow">{textos.apresentacao.categoria}</p>
-          <h2>{textos.apresentacao.titulo}</h2>
-          <p className="lede">{textos.apresentacao.descricao}</p>
-        </div>
-
-        <div className="principles">
-          {textos.principios.map((item) => (
-            <div key={item.numero} className="principle-item">
-              <span className="principle-num">{item.numero}</span>
-              <p>
-                <b>{item.titulo}:</b> {item.descricao}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Rodapé */}
+      {/* Rodapé Corporativo Enxuto */}
       <footer className="app-footer">
         <div className="footer-content">
           <b>{textos.rodape.titulo}</b>

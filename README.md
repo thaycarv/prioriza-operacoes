@@ -42,20 +42,20 @@ A severidade é determinada por fatores operacionais concretos (Impacto no Proce
 
 ---
 
-## 🎭 Cenários Operacionais Demonstrativos
+## 📋 Chamados & Ocorrências dos Polos Comunitários
 
-O cockpit permite simular 4 desafios reais do portfólio de projetos do RadarSocial:
+O sistema gerencia chamados reais do portfólio de projetos do ecossistema RadarSocial:
 
-1. **Cenário A — Pane Elétrica e Queda de Link no Polo Digital Norte (Inclusão Digital):**
+1. **Chamado #2041 — Polo Digital Norte (Inclusão Digital):**
    * Curto-circuito interrompeu 20 computadores a poucas horas de oficina certificadora de 40 jovens.
    * *Enquadramento:* **Fila de Atendimento Imediato (P1)** com SLA de 1h para manutenção emergencial.
-2. **Cenário B — Solicitação de Adiantamento de Insumos sem 3 Cotações (Agricultura Familiar):**
-   * Cooperativa Terra Viva pede R$ 14.500 após vendaval, sem anexar cotações ou NFs exigidas pelo MROSC.
+2. **Chamado #2042 — Cooperativa Terra Viva (Agricultura Familiar):**
+   * Cooperativa pede R$ 14.500 após vendaval, sem anexar cotações ou NFs exigidas pelo MROSC.
    * *Enquadramento:* **Retorno com Orientações** para evitar glosas na prestação de contas.
-3. **Cenário C — Expansão Noturna do Ateliê Comunitário (Empreendedorismo Feminino):**
+3. **Chamado #2043 — Ateliê Comunitário (Empreendedorismo Feminino):**
    * Coletivo propõe turma noturna de costura para mães que trabalham de dia. Aulas diurnas normais.
    * *Enquadramento:* **Backlog de Planejamento (P4)** para o planejamento do próximo ciclo semestral.
-4. **Cenário D — Inconformidade Sanitária de Geleias - RDC 727 (Alimentação Saudável):**
+4. **Chamado #2044 — Coletivo Gastronomia Solidária (Alimentação Saudável):**
    * Fiscalização apontou ausência de rotulagem nutricional e alérgenos em 150 potes artesanais.
    * *Enquadramento:* **Atenção Imediata** com acionamento técnico da equipe de nutrição e operações.
 

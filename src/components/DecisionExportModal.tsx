@@ -24,7 +24,7 @@ export const DecisionExportModal: React.FC<DecisionExportModalProps> = ({
   if (!isOpen) return null;
 
   const exportText = `*Resumo da Triagem: RadarSocial Prioriza*
-Protocolo: ${protocol || "RS-" + new Date().getFullYear() + "-DEMO"}
+Protocolo: ${protocol || "RS-" + new Date().getFullYear() + "-02041"}
 Data: ${new Date().toLocaleDateString("pt-BR")}
 
 *1. Identificação:*

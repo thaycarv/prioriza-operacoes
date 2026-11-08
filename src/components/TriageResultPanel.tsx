@@ -63,9 +63,9 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
           <div className="empty-icon-wrapper">
             <RotateCcw className="empty-icon-svg" aria-hidden="true" />
           </div>
-          <b>Formulário alterado</b>
+          <b>Chamado em edição</b>
           <p>
-            Envie a solicitação ou escolha um dos cenários acima para ver a análise.
+            Envie a solicitação ou selecione um chamado na fila acima para visualizar a triagem.
           </p>
         </div>
       ) : (
@@ -75,7 +75,15 @@ export const TriageResultPanel: React.FC<TriageResultPanelProps> = ({
             <div className="route-header">
               <div className="route-header-left">
                 {getRouteIcon(result.route)}
-                <span className="route-badge">{result.route.toUpperCase()}</span>
+                <span className="route-badge">
+                  {result.route === "queue"
+                    ? "FILA REGULAR"
+                    : result.route === "return"
+                    ? "RETORNO ORIENTADO"
+                    : result.route === "triage"
+                    ? "ATENÇÃO IMEDIATA"
+                    : "PLANEJAMENTO"}
+                </span>
               </div>
               <small>ENCAMINHAMENTO</small>
             </div>
