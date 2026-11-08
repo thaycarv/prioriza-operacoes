@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { DemandForm, TriageResult, AiAnalysis } from "../types";
+import { FileText, X, Check, Copy } from "lucide-react";
 
 interface DecisionExportModalProps {
   isOpen: boolean;
@@ -22,22 +23,23 @@ export const DecisionExportModal: React.FC<DecisionExportModalProps> = ({
 
   if (!isOpen) return null;
 
-  const exportText = `*Resumo da Triagem Operacional: Prioriza*
-Protocolo: ${protocol || "OP-" + new Date().getFullYear() + "-DEMO"}
+  const exportText = `*Parecer de Triagem Operacional: RadarSocial Prioriza*
+Protocolo: ${protocol || "RS-OP-" + new Date().getFullYear() + "-DEMO"}
 Data: ${new Date().toLocaleDateString("pt-BR")}
+Módulo: Triagem de Demandas & Incidentes Comunitários
 
 *1. Identificação da Solicitação:*
 - Título: ${form.title || "Sem título"}
-- Origem: ${form.origin} (${form.kind})
+- Origem no RadarSocial: ${form.origin} (${form.kind})
 - Volume Afetado: ${form.affected || "0"} confirmado(s)
 - Situação do Processo: ${form.process || "Não informado"}
 - Alternativa Temporária (Contorno): ${form.workaround}
 
-*2. Enquadramento e Severidade:*
-- Rota: ${triage.routeTitle}
+*2. Enquadramento e Severidade Operacional:*
+- Rota de Encaminhamento: ${triage.routeTitle}
 - Nível de Criticidade: ${triage.priority.level} (${triage.priority.name})
 - Meta de Atendimento (SLA): ${triage.priority.slaLabel}
-- Justificativa da Triagem: ${triage.priority.rationale}
+- Parecer da Triagem: ${triage.priority.rationale}
 
 *3. Fatores Operacionais Analisados:*
 ${triage.factors
@@ -46,7 +48,7 @@ ${triage.factors
 
 ${
   aiAnalysis?.suggestedQuestions && aiAnalysis.suggestedQuestions.length > 0
-    ? `\n*Perguntas Recomendadas para o Solicitante:*\n` +
+    ? `\n*Perguntas Recomendadas para o Solicitante (Polo/Cooperativa):*\n` +
       aiAnalysis.suggestedQuestions.map((q) => `- ${q}`).join("\n")
     : ""
 }
@@ -59,17 +61,20 @@ ${
   };
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
+    <div className="modal-overlay" onClick={onClose} role="dialog" aria-modal="true">
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
-          <h3>📋 Copiar Resumo Estruturado</h3>
-          <button className="modal-close" onClick={onClose}>
-            ✕
+          <div className="modal-header-title">
+            <FileText className="modal-title-icon" aria-hidden="true" />
+            <h3>Parecer Estruturado de Triagem</h3>
+          </div>
+          <button className="modal-close" onClick={onClose} aria-label="Fechar modal">
+            <X className="modal-close-icon" aria-hidden="true" />
           </button>
         </div>
 
         <p className="modal-desc">
-          Texto formatado para registro em ferramentas de chamado, prontuário, Jira ou comunicação operacional.
+          Texto padronizado para anexação no dossiê do RadarSocial, atas de comitê ou despacho com lideranças de polo.
         </p>
 
         <textarea
@@ -84,7 +89,17 @@ ${
             Fechar
           </button>
           <button className="primary" onClick={handleCopy}>
-            {copied ? "✓ Copiado com sucesso!" : "Copiar Resumo"}
+            {copied ? (
+              <>
+                <Check className="btn-icon" aria-hidden="true" />
+                Copiado com sucesso!
+              </>
+            ) : (
+              <>
+                <Copy className="btn-icon" aria-hidden="true" />
+                Copiar Parecer
+              </>
+            )}
           </button>
         </div>
       </div>

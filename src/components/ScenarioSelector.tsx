@@ -1,23 +1,31 @@
 import React from "react";
 import { DemandForm } from "../types";
+import {
+  AlertOctagon,
+  FileQuestion,
+  CalendarClock,
+  ShieldAlert,
+  Sparkles,
+} from "lucide-react";
 
 export const scenarioData: Record<
   string,
-  { form: DemandForm; badge: string; description: string }
+  { form: DemandForm; badge: string; description: string; icon: string }
 > = {
   A: {
     badge: "Crítico P1 (Ação Imediata)",
-    description: "Bloqueio na dispensação de quimioterápico (Severidade P1 com início imediato)",
+    description: "Pane elétrica e queda de link no Polo Digital (Inclusão Digital)",
+    icon: "AlertOctagon",
     form: {
-      title: "Bloqueio na dispensação de quimioterápico",
-      origin: "Farmácia Hospitalar",
-      kind: "Incidente Crítico",
-      perceived: "Alta",
+      title: "Interrupção de energia e link de rede no Polo Digital Norte",
+      origin: "Polo Comunitário Digital",
+      kind: "Incidente de Infraestrutura / TI",
+      perceived: "Crítica",
       description:
-        "Farmácia hospitalar relata travamento no sistema de dispensação de quimioterápicos para a ala oncológica. Pacientes aguardam infusão agendada para esta manhã.",
+        "Curto-circuito no quadro de distribuição secundário interrompeu a energia de 20 computadores e travou o link de internet a poucas horas da oficina certificadora de 40 jovens da comunidade. Sem contorno provisório e com risco de queima de placas.",
       process: "interrompido",
-      workaround: "nao-sei",
-      affected: "1",
+      workaround: "nao",
+      affected: "40",
       trend: "desconhecida",
       actionWindow: "5",
       sla: "sim",
@@ -25,14 +33,15 @@ export const scenarioData: Record<
   },
   B: {
     badge: "Dados Incompletos",
-    description: "Autorização de cirurgia eletiva (Retorno por falta de laudo)",
+    description: "Pedido de adiantamento sem 3 cotações MROSC (Agricultura Familiar)",
+    icon: "FileQuestion",
     form: {
-      title: "Autorização de cirurgia eletiva de alta complexidade",
-      origin: "Consultório Credenciado",
-      kind: "Regulação / Guia",
+      title: "Solicitação de adiantamento emergencial para insumos agrícolas",
+      origin: "Cooperativa Agrícola / Produção",
+      kind: "Solicitação Financeira / Remanejamento",
       perceived: "Alta",
       description:
-        "Médico solicita autorização para artroplastia total de quadril com prótese importada. O pedido não contém o laudo de imagem anexado nem a justificativa de indicação clínica exigida pelo protocolo ANS.",
+        "Cooperativa solicita liberação emergencial de R$ 14.500 para compra de mudas e adubo orgânico após vendaval. O pedido não contém as 3 cotações de fornecedores locais nem a prestação de contas das notas fiscais do repasse anterior exigidas pelo MROSC.",
       process: "dificuldade",
       workaround: "nao-sei",
       affected: "",
@@ -43,32 +52,34 @@ export const scenarioData: Record<
   },
   C: {
     badge: "Melhoria Planejada",
-    description: "Revisão de protocolo ambulatorial (Direcionamento ao backlog)",
+    description: "Abertura de turma noturna no Ateliê (Empreendedorismo Feminino)",
+    icon: "CalendarClock",
     form: {
-      title: "Revisão do protocolo de teleconsulta para psicologia",
-      origin: "Coordenação Clínica",
-      kind: "Melhoria planejada",
+      title: "Expansão da grade horária do Ateliê Comunitário para turno noturno",
+      origin: "Ateliê / Coletivo Produtivo",
+      kind: "Melhoria de Escopo / Expansão",
       perceived: "Moderada",
       description:
-        "Coordenação médica solicita reavaliação dos fluxos do formulário de triagem de telemedicina para o próximo ciclo semestral. Sem impacto em atendimentos vigentes.",
+        "Liderança do coletivo propõe abertura de turma noturna de corte e costura para mães que trabalham durante o dia. As oficinas regulares diurnas continuam funcionando normalmente sem impacto. Demanda direcionada para análise no próximo ciclo semestral.",
       process: "nao-afetado",
       workaround: "sim",
-      affected: "1",
+      affected: "15",
       trend: "estavel",
       actionWindow: "1",
       sla: "nao",
     },
   },
   D: {
-    badge: "Sinal de Risco",
-    description: "Suspeita de reação adversa em lote (Triagem humana imediata)",
+    badge: "Sinal de Risco Sanitário",
+    description: "Inconformidade de rotulagem de geleias - RDC 727 (Alimentação Saudável)",
+    icon: "ShieldAlert",
     form: {
-      title: "Suspeita de lote com reação adversa (Farmacovigilância)",
-      origin: "Vigilância / Enfermagem",
-      kind: "Possível incidente sanitário",
+      title: "Inconformidade sanitária e suspensão cautelar de lote de geleias (RDC 727)",
+      origin: "Fiscalização / Vigilância Sanitária",
+      kind: "Risco Regulatório & Sanitário (Anvisa)",
       perceived: "Crítica",
       description:
-        "Unidade de internação relata 2 casos de hipotensão súbita após infusão de lote de antibiótico. Ainda sem confirmação laboratorial da causa, mas volume de alertas de enfermagem continua aumentando.",
+        "Notificação prévia da vigilância sanitária apontou ausência de tabela nutricional obrigatória e declaração de alérgenos conforme a RDC nº 727/2022 da Anvisa em 150 potes de geleia artesanal prontos para distribuição escolar. Risco iminente de descarte do lote.",
       process: "dificuldade",
       workaround: "nao-sei",
       affected: "",
@@ -90,6 +101,21 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
   onSelectScenario,
   onStartFreeTest,
 }) => {
+  const getIcon = (key: string) => {
+    switch (key) {
+      case "A":
+        return <AlertOctagon className="scenario-icon text-red" aria-hidden="true" />;
+      case "B":
+        return <FileQuestion className="scenario-icon text-amber" aria-hidden="true" />;
+      case "C":
+        return <CalendarClock className="scenario-icon text-blue" aria-hidden="true" />;
+      case "D":
+        return <ShieldAlert className="scenario-icon text-amber" aria-hidden="true" />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="samples-container">
       <div className="samples">
@@ -98,17 +124,31 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
           return (
             <button
               key={key}
+              type="button"
+              className={`sample-btn ${isActive ? "active" : ""}`}
               onClick={() => onSelectScenario(key)}
-              className={`scenario-btn ${isActive ? "active" : ""}`}
-              title={data.description}
             >
-              <span className="scenario-tag">Cenário {key}</span>
-              <span className="scenario-label">{data.badge}</span>
+              <div className="sample-btn-header">
+                {getIcon(key)}
+                <span className="sample-badge">{data.badge}</span>
+              </div>
+              <b>Cenário {key}</b>
+              <small>{data.description}</small>
             </button>
           );
         })}
-        <button className="free-test" onClick={onStartFreeTest}>
-          + Novo Teste Livre
+
+        <button
+          type="button"
+          className="sample-btn free-test-btn"
+          onClick={onStartFreeTest}
+        >
+          <div className="sample-btn-header">
+            <Sparkles className="scenario-icon text-emerald" aria-hidden="true" />
+            <span className="sample-badge">Simulação Livre</span>
+          </div>
+          <b>Formulário em Branco</b>
+          <small>Preencher dados manuais para testar regras operacionais</small>
         </button>
       </div>
     </div>

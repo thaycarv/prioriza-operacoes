@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { AiAnalysis } from "../types";
+import { Sparkles, Check, Copy } from "lucide-react";
 
 interface AiAssistantCardProps {
   aiAnalysis: AiAnalysis | null;
@@ -21,8 +22,11 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
   return (
     <div className="assistant-card">
       <div className="assistant-card-header">
-        <b>Destaques e Análise do Relato</b>
-        <span className="assistant-pill">Apoio Analítico</span>
+        <div className="assistant-title-box">
+          <Sparkles className="assistant-icon" aria-hidden="true" />
+          <b>Apoio Analítico & Fatos do Relato</b>
+        </div>
+        <span className="assistant-pill">Copiloto Operacional</span>
       </div>
 
       <div className="assistant-summary">
@@ -31,7 +35,7 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
 
       <div className="assistant-grid">
         <div className="assistant-col">
-          <b>Fatos Confirmados</b>
+          <b>Fatos Confirmados na Demanda</b>
           <ul>
             {aiAnalysis.facts.map((fact, idx) => (
               <li key={idx}>{fact}</li>
@@ -40,7 +44,7 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
         </div>
 
         <div className="assistant-col">
-          <b>Hipóteses a Validar</b>
+          <b>Hipóteses a Validar com o Polo</b>
           <ul>
             {aiAnalysis.hypotheses.map((hyp, idx) => (
               <li key={idx}>{hyp}</li>
@@ -53,7 +57,7 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
         <div className="assistant-questions">
           <div className="questions-header">
             <b>Perguntas Recomendadas para o Solicitante:</b>
-            <small>Clique em uma pergunta para copiar</small>
+            <small>Clique em uma pergunta para copiar e enviar ao polo</small>
           </div>
           <div className="questions-list">
             {aiAnalysis.suggestedQuestions.map((q, idx) => (
@@ -67,7 +71,17 @@ export const AiAssistantCard: React.FC<AiAssistantCardProps> = ({
               >
                 <span>{q}</span>
                 <span className="copy-action">
-                  {copiedQuestion === q ? "Copiado" : "Copiar"}
+                  {copiedQuestion === q ? (
+                    <>
+                      <Check className="copy-icon" aria-hidden="true" />
+                      Copiado
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="copy-icon" aria-hidden="true" />
+                      Copiar
+                    </>
+                  )}
                 </span>
               </div>
             ))}

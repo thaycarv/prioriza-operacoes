@@ -10,11 +10,12 @@ import { ScenarioSelector, scenarioData } from "./components/ScenarioSelector";
 import { IntakeForm } from "./components/IntakeForm";
 import { TriageResultPanel } from "./components/TriageResultPanel";
 import { DecisionExportModal } from "./components/DecisionExportModal";
+import { User, SlidersHorizontal } from "lucide-react";
 
 const emptyForm: DemandForm = {
   title: "",
-  origin: "Cliente",
-  kind: "Solicitação operacional",
+  origin: "Polo Comunitário Digital",
+  kind: "Incidente de Infraestrutura / TI",
   perceived: "",
   description: "",
   process: "",
@@ -55,7 +56,7 @@ export default function App() {
     setReviewed(false);
   };
 
-  // Selecionar cenário de teste
+  // Selecionar cenário demonstrativo
   const handleSelectScenario = (key: string) => {
     const selected = scenarioData[key].form;
     setForm(selected);
@@ -73,21 +74,21 @@ export default function App() {
     setView("requester");
   };
 
-  // Enviar formulário
+  // Protocolar formulário
   const handleSubmitForm = (e: React.FormEvent) => {
     e.preventDefault();
     setAnalyzed(true);
-    const newProtocol = `OP-${new Date().getFullYear()}-${String(
+    const newProtocol = `RS-OP-${new Date().getFullYear()}-${String(
       Date.now()
     ).slice(-6)}`;
     setProtocol(newProtocol);
   };
 
   return (
-    <main>
+    <main className="app-shell">
       <Header />
 
-      {/* Espaço de Trabalho e Demonstração (Direto no Protótipo) */}
+      {/* Espaço de Trabalho Executivo */}
       <section className="workspace">
         <div className="section-head">
           <div>
@@ -102,26 +103,30 @@ export default function App() {
           />
         </div>
 
-        {/* Alternador de Perfis (Centralizado) */}
+        {/* Alternador de Perfis (Human-in-the-Loop) */}
         <div
           className="view-switch"
           aria-label="Alternar perfil de visualização"
         >
           <button
+            type="button"
             className={view === "requester" ? "active" : ""}
             onClick={() => setView("requester")}
           >
-            👤 Visão do Solicitante (Entrada e Protocolo)
+            <User className="btn-icon" aria-hidden="true" />
+            Visão do Polo / Solicitante (Entrada & Protocolo)
           </button>
           <button
+            type="button"
             className={view === "analyst" ? "active" : ""}
             onClick={() => setView("analyst")}
           >
-            🔍 Visão da Triagem (Análise e Severidade)
+            <SlidersHorizontal className="btn-icon" aria-hidden="true" />
+            Visão da Triagem (Coordenação & Severidade)
           </button>
         </div>
 
-        {/* Painéis Principais (Centralizados) */}
+        {/* Painéis Principais (Formulário + Painel de Triagem) */}
         <div className={`grid view-${view}`}>
           <IntakeForm
             form={form}
@@ -144,7 +149,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* Diretrizes e Princípios Operacionais */}
+      {/* Diretrizes e Princípios Operacionais do RadarSocial */}
       <section className="about-section">
         <div className="about-header">
           <p className="eyebrow">{textos.apresentacao.categoria}</p>
@@ -164,16 +169,16 @@ export default function App() {
         </div>
       </section>
 
-      {/* Rodapé */}
-      <footer>
-        <p>
+      {/* Rodapé Institucional */}
+      <footer className="app-footer">
+        <div className="footer-content">
           <b>{textos.rodape.titulo}</b>
-          <br />
-          {textos.rodape.observacao}
-        </p>
+          <p>{textos.rodape.observacao}</p>
+          <small className="footer-skills">{textos.rodape.competencias}</small>
+        </div>
       </footer>
 
-      {/* Modal de Exportação */}
+      {/* Modal de Exportação do Parecer */}
       <DecisionExportModal
         isOpen={isExportModalOpen}
         onClose={() => setIsExportModalOpen(false)}

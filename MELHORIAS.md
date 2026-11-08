@@ -1,30 +1,29 @@
-# Catálogo de Melhorias: Prioriza
+# Catálogo de Auditoria e Melhorias: RadarSocial Prioriza
 
-Este documento cataloga as evoluções realizadas no **Prioriza**, estruturando as melhorias em termos de usabilidade, clareza operacional e arquitetura.
+Este documento registra as auditorias e transformações realizadas no **RadarSocial Prioriza**, sob a ótica de **Engenharia de Produção (Qualidade e Processos)** e **Recrutamento Técnico/ESG**, integrando-o formalmente como módulo operacional do ecossistema **RadarSocial**.
 
 ---
 
-## 1. Comparativo entre Versões
+## 1. Comparativo entre Versões & Transformações
 
-| Aspecto | Versão 1.0 | Versão 2.0 | Benefício Operacional |
+| Dimensão | Estado Anterior | Estado Atual (Módulo RadarSocial) | Ganho Operacional & Defesa em Entrevistas |
 | :--- | :--- | :--- | :--- |
-| **Linguagem e Tom** | Foco excessivo em termos técnicos abstratos. | Comunicação profissional, clara e alinhada à rotina de operações. | Maior clareza e facilidade de adoção pelos usuários. |
-| **Fluxo de Visualização** | Tela única sem ordenação prioritária de papéis. | Navegação iniciando pela Visão do Solicitante, seguida da Visão da Triagem. | Alinhamento com a jornada real de entrada e posterior análise. |
-| **Suporte à Triagem** | Regra estática com filtros simples por palavras-chave. | Apoio analítico que categoriza fatos e sugere perguntas para demandas pendentes. | Redução de retrabalho e agilidade na complementação de dados. |
-| **Estrutura de Código** | Arquivo único centralizando estado, layout e lógica. | Código modular em TypeScript (`components/`, `lib/`, `types/`). | Manutenibilidade e facilidade para evolução contínua. |
+| **Escopo & Posicionamento** | Chamados genéricos de regulação em saúde/hospitalar desconectados do restante do portfólio. | **Extensão oficial do RadarSocial:** módulo de triagem operacional para demandas de polos e cooperativas sociais. | Cria um ecossistema coerente de ponta a ponta (Macro-governança no RadarSocial + Triagem tática no Prioriza). |
+| **Cenários Operacionais** | Cenários hospitalares isolados (quimioterápico, prótese de quadril, teleconsulta). | **Cenários do RadarSocial:** Inclusão Digital (Polo Norte), Agricultura Familiar (Cooperativa Terra Viva), Costura Comunitária e Alimentos (RDC 727 Anvisa). | Conexão autêntica com as competências reais da candidata (Engenharia de Produção + Nutrição). |
+| **Ancoragem Regulatória** | Menções genéricas à ANS. | **MROSC (Lei 13.019/2014)** para exigência de 3 cotações/NFs e **RDC nº 727/2022 da Anvisa** para rotulagem nutricional de geleias. | Demonstra domínio da legislação brasileira de parcerias com o terceiro setor e vigilância sanitária. |
+| **Design System** | Paleta ciano/verde-água com emojis avulsos no layout. | **Padrão Editorial Deep Forest & Slate:** ícones vetoriais SVG da biblioteca **Lucide React**, contraste acessível e topbar institucional com selo do RadarSocial. | Acabamento de produto corporativo de alto padrão, sem cara de template descartável de IA. |
+| **Engenharia de Testes** | Sem suíte automatizada de testes de regras de triagem. | **Vitest integrado:** 6 testes unitários cobrindo todas as 4 rotas de triagem, níveis P1 a P4 e geração dos 5 fatores operacionais. | Garantia contra regressões e conformidade técnica no pipeline de CI/CD. |
 
 ---
 
-## 2. Detalhamento das Alterações
+## 2. A Jornada Integrada de Triagem com Human-in-the-Loop
 
-1. **Jornada de Usuário Reordenada:**
-   * O sistema abre por padrão na **Visão do Solicitante**, permitindo o registro da demanda e visualização do protocolo de atendimento.
-   * O operador pode alternar para a **Visão da Triagem** para conferir o enquadramento de severidade (P1 a P4), pontos de atenção e prazos de SLA.
-
-2. **Apoio Analítico Sem Complexidade Excessiva:**
-   * Identificação de dados confirmados versus hipóteses levantadas no relato.
-   * Geração de perguntas objetivas com cópia em um clique para envio ao solicitante.
-   * Eliminação de etapas intermediárias ou configurações desnecessárias.
-
-3. **Exportação Padronizada:**
-   * Recurso para copiar o parecer completo da triagem formatado para registro em tickets de Service Desk.
+1. **Entrada Padronizada (Poka-Yoke):** O formulário exige dados observáveis e objetivos (número de pessoas/equipamentos afetados, situação do processo e existência de contorno temporário).
+2. **Motor Determinístico de Regras:**
+   - Detecta automaticamente se faltam requisitos formais do MROSC e aciona a rota de **Retorno Guiado ao Solicitante**, eliminando retrabalho do comitê.
+   - Identifica sinais de emergência física ou sanitária e encaminha à **Fila de Ação Imediata (P1)** com SLA de até 1 hora.
+   - Isola solicitações de longo prazo e as direciona ao **Backlog Estratégico (P4)**, evitando que concorram com incidentes críticos.
+3. **Apoio Analítico com Supervisão Humana:**
+   - Separa o que é fato comprovado de hipóteses levantadas pelo solicitante.
+   - Gera perguntas de esclarecimento em 1 clique para envio ao polo comunitário.
+   - Exige validação explícita do analista (**Human-in-the-Loop**) antes da conclusão da triagem.
