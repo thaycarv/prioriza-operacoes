@@ -28,10 +28,12 @@ const emptyForm: DemandForm = {
 
 export default function App() {
   const [form, setForm] = useState<DemandForm>(scenarioData.A.form);
+  const [selectedTicketKey, setSelectedTicketKey] = useState<string | null>("A");
   const [analyzed, setAnalyzed] = useState(true);
   const [reviewed, setReviewed] = useState(false);
   const [view, setView] = useState<"requester" | "analyst">("requester");
-  const [protocol, setProtocol] = useState(scenarioData.A.protocol);
+  // Inicializa VAZIO para a solicitação aparecer para ser enviada (e NÃO já enviada)
+  const [protocol, setProtocol] = useState("");
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
 
   // Motor de regras e triagem
@@ -60,7 +62,9 @@ export default function App() {
   const handleSelectScenario = (key: string) => {
     const selected = scenarioData[key];
     setForm(selected.form);
-    setProtocol(selected.protocol);
+    setSelectedTicketKey(key);
+    // Não marca como enviado: deixa a tela aberta com o formulário pronto para envio/edição
+    setProtocol("");
     setAnalyzed(true);
     setReviewed(false);
   };
@@ -68,6 +72,7 @@ export default function App() {
   // Limpar formulário para novo chamado manual
   const handleStartFreeTest = () => {
     setForm({ ...emptyForm });
+    setSelectedTicketKey(null);
     setProtocol("");
     setAnalyzed(false);
     setReviewed(false);
@@ -83,6 +88,10 @@ export default function App() {
     ).slice(-5)}`;
     setProtocol(newProtocol);
   };
+
+  const activeProtocolForExport =
+    protocol ||
+    (selectedTicketKey ? scenarioData[selectedTicketKey]?.protocol : "RS-2026-02041");
 
   return (
     <main className="app-shell">
@@ -170,12 +179,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* Rodapé Corporativo Enxuto */}
+      {/* Rodapé Corporativo com Assinatura Profissional */}
       <footer className="app-footer">
         <div className="footer-content">
-          <b>{textos.rodape.titulo}</b>
-          <p>{textos.rodape.observacao}</p>
-          <small className="footer-skills">{textos.rodape.competencias}</small>
+          <p className="footer-signature">{textos.rodape.assinatura}</p>
         </div>
       </footer>
 
@@ -186,7 +193,7 @@ export default function App() {
         form={form}
         triage={triageResult}
         aiAnalysis={aiAnalysis}
-        protocol={protocol}
+        protocol={activeProtocolForExport}
       />
     </main>
   );

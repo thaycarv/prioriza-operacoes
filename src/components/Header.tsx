@@ -1,6 +1,6 @@
 import React from "react";
 import { textos } from "../textos";
-import { Layers, ShieldCheck } from "lucide-react";
+import { Layers, Activity } from "lucide-react";
 
 export const Header: React.FC = () => {
   return (
@@ -16,9 +16,9 @@ export const Header: React.FC = () => {
       </div>
 
       <div className="topbar-right">
-        <span className="author-tag">
-          <ShieldCheck className="author-icon" aria-hidden="true" />
-          Thayâne Carvalho
+        <span className="system-pill">
+          <Activity className="system-icon" aria-hidden="true" />
+          Ecossistema RadarSocial
         </span>
         <div className="topbar-tag">
           <span>{textos.marca.modulo}</span>

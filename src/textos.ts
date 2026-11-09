@@ -6,7 +6,7 @@ export const textos = {
     nome: "RadarSocial Prioriza",
     sigla: "RS",
     assinatura: "Gestão Operacional & Triagem de Demandas",
-    modulo: "Módulo de Triagem",
+    modulo: "Módulo de Triagem Operacional",
     versao: "Operações",
   },
 
@@ -26,9 +26,7 @@ export const textos = {
   },
 
   rodape: {
-    titulo: "RadarSocial Prioriza",
-    observacao:
-      "Módulo de Triagem e Qualificação Operacional · Ecossistema RadarSocial",
-    competencias: "Thayâne Carvalho · Engenharia de Produção & Nutrição",
+    assinatura:
+      "Thayâne Carvalho · Gestão Operacional e Triagem de Demandas · Ecossistema RadarSocial",
   },
 } as const;

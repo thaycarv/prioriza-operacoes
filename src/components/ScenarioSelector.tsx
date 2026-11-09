@@ -134,7 +134,7 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
       case "C":
         return <CalendarClock className="scenario-icon text-blue" aria-hidden="true" />;
       case "D":
-        return <ShieldAlert className="scenario-icon text-amber" aria-hidden="true" />;
+        return <ShieldAlert className="scenario-icon text-orange" aria-hidden="true" />;
       default:
         return null;
     }
@@ -168,7 +168,7 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
 
         <button
           type="button"
-          className="sample-btn free-test-btn"
+          className={`sample-btn free-test-btn ${!currentTitle ? "active" : ""}`}
           onClick={onStartFreeTest}
         >
           <div className="sample-btn-header">
@@ -178,9 +178,9 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
             </div>
             <span className="sample-badge badge-green">Entrada Manual</span>
           </div>
-          <span className="ticket-polo-name">Nova Ocorrência</span>
-          <small className="ticket-desc">Registrar chamado do zero</small>
-          <span className="ticket-sla-tag">Formulário Limpo</span>
+          <span className="ticket-polo-name">Novo Chamado</span>
+          <small className="ticket-desc">Formulário em branco</small>
+          <span className="ticket-sla-tag">Preenchimento</span>
         </button>
       </div>
     </div>
