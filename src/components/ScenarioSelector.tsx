@@ -161,7 +161,6 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
               </div>
               <span className="ticket-polo-name">{data.polo}</span>
               <small className="ticket-desc">{data.description}</small>
-              <span className="ticket-sla-tag">{data.slaTag}</span>
             </button>
           );
         })}
@@ -180,7 +179,6 @@ export const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({
           </div>
           <span className="ticket-polo-name">Novo Chamado</span>
           <small className="ticket-desc">Formulário em branco</small>
-          <span className="ticket-sla-tag">Preenchimento</span>
         </button>
       </div>
     </div>

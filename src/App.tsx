@@ -98,37 +98,8 @@ export default function App() {
       <Header />
 
       <section className="workspace">
-        {/* Cabeçalho da Fila de Chamados dos Polos */}
-        <div className="section-head">
-          <div className="queue-header-titles">
-            <p className="eyebrow">{textos.fila.categoria}</p>
-            <h2>{textos.fila.titulo}</h2>
-            <p className="queue-subtitle">{textos.fila.subtitulo}</p>
-          </div>
-
-          <div className="queue-stats-row">
-            <span className="stat-pill">
-              <span className="stat-dot dot-gray"></span>
-              <b>4</b> chamados na fila
-            </span>
-            <span className="stat-pill">
-              <span className="stat-dot dot-red"></span>
-              <b>1</b> imediato (P1)
-            </span>
-            <span className="stat-pill">
-              <span className="stat-dot dot-amber"></span>
-              <b>1</b> pendência MROSC
-            </span>
-            <span className="stat-pill">
-              <span className="stat-dot dot-orange"></span>
-              <b>1</b> risco sanitário
-            </span>
-            <span className="stat-pill">
-              <span className="stat-dot dot-blue"></span>
-              <b>1</b> planejamento (P4)
-            </span>
-          </div>
-
+        {/* Fila de Chamados */}
+        <div className="queue-container">
           <ScenarioSelector
             currentTitle={form.title}
             onSelectScenario={handleSelectScenario}
