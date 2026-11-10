@@ -13,7 +13,7 @@ Enquanto o **RadarSocial** atua no nível **estratégico** (governança de progr
 ## 🎯 O Desafio Operacional na Gestão de Programas Sociais
 
 Em programas sociais com múltiplos polos e cooperativas atendidas, tudo chega rotulado como "urgente" por mensagens ou e-mails:
-* **Falta de requisitos formais:** pedidos de recursos chegam sem as 3 cotações de mercado ou sem a prestação de contas de notas fiscais exigidas pelo **MROSC (Lei nº 13.019/2014)**, travando o comitê em retrabalho;
+* **Falta de requisitos formais:** pedidos de recursos chegam sem as 3 cotações de mercado ou sem a prestação de contas de notas fiscais exigidas pelas regras de compras do projeto, travando o comitê em retrabalho;
 * **Risco de paralisação física:** panes elétricas ou quedas de internet em laboratórios comunitários de TI podem interromper turmas de alunos se não forem atendidas imediatamente;
 * **Riscos sanitários e regulatórios:** falhas de rotulagem nutricional em alimentos artesanais (**RDC nº 727/2022 da Anvisa**) exigem intervenção técnica preventiva antes da autuação ou descarte de lotes;
 * **Sobrecarga da equipe:** sem uma triagem com critérios objetivos, atende-se quem reclama mais alto, gerando ineficiência e desperdício de recursos públicos/privados.
@@ -50,7 +50,7 @@ O sistema gerencia chamados reais do portfólio de projetos do ecossistema Radar
    * Curto-circuito interrompeu 20 computadores a poucas horas de oficina certificadora de 40 jovens.
    * *Enquadramento:* **Fila de Atendimento Imediato (P1)** com SLA de 1h para manutenção emergencial.
 2. **Chamado #2042 — Cooperativa Terra Viva (Agricultura Familiar):**
-   * Cooperativa pede R$ 14.500 após vendaval, sem anexar cotações ou NFs exigidas pelo MROSC.
+   * Cooperativa pede R$ 14.500 após vendaval, sem anexar cotações ou NFs exigidas pelas regras de compras.
    * *Enquadramento:* **Retorno com Orientações** para evitar glosas na prestação de contas.
 3. **Chamado #2043 — Ateliê Comunitário (Empreendedorismo Feminino):**
    * Coletivo propõe turma noturna de costura para mães que trabalham de dia. Aulas diurnas normais.
@@ -85,4 +85,4 @@ npm run build
 
 ## 👩‍💼 Competências Aplicadas
 
-Engenharia de Processos • Teoria das Filas e Gestão de Capacidade • Governança MROSC (Lei 13.019/2014) • Conformidade Regulatória Sanitária (Anvisa RDC 727/2022) • Human-in-the-Loop • Gestão de Incidentes Operacionais
+Engenharia de Processos • Teoria das Filas e Gestão de Capacidade • Gestão de Compras e Prestação de Contas • Conformidade Regulatória Sanitária (Rotulagem e Alérgenos) • Human-in-the-Loop • Gestão de Incidentes Operacionais

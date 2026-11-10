@@ -50,7 +50,7 @@ export const scenarioData: Record<string, OperationalTicketItem> = {
     badge: "Pendente Doc",
     badgeClass: "badge-amber",
     description: "Adiantamento para insumos agrícolas",
-    slaTag: "Sem 3 cotações · MROSC",
+    slaTag: "Sem 3 cotações de fornecedores",
     form: {
       title: "Solicitação de adiantamento para insumos agrícolas",
       origin: "Cooperativa Agrícola / Produção",
