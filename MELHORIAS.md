@@ -16,9 +16,9 @@ Este documento registra as auditorias e transformações realizadas no **RadarSo
 
 ---
 
-## 2. A Jornada Integrada de Triagem com Human-in-the-Loop
+## 2. A Jornada Integrada de Triagem com Supervisão Humana
 
-1. **Entrada Padronizada (Poka-Yoke):** O formulário exige dados observáveis e objetivos (número de pessoas/equipamentos afetados, situação do processo e existência de contorno temporário).
+1. **Entrada Padronizada:** O formulário exige dados observáveis e objetivos (número de pessoas/equipamentos afetados, situação do processo e existência de contorno temporário).
 2. **Motor Determinístico de Regras:**
    - Detecta automaticamente se faltam requisitos formais de compras (3 cotações de fornecedores ou notas fiscais) e aciona a rota de **Retorno com Orientações**, eliminando retrabalho do comitê.
    - Identifica sinais de emergência física ou sanitária e encaminha à **Fila de Atendimento Imediato (P1)** com SLA de até 1 hora.

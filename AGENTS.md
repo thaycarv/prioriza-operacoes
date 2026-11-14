@@ -58,5 +58,5 @@ Todo Pull Request aberto deve conter obrigatoriamente as seguintes 4 seções de
 
 ## 4. 🛡️ Critérios de Aceite & Governança Ética
 * **Integridade da Matriz de Severidade (P1 a P4)**: Preservar a lógica de classificação objetiva por impacto, abrangência e enquadramento de SLAs.
-* **Supervisão Humana (*Human-in-the-loop*)**: A IA deve atuar exclusivamente como apoio consultivo na triagem, cabendo ao analista a decisão final.
+* **Supervisão Humana**: A IA deve atuar exclusivamente como apoio consultivo na triagem, cabendo ao analista a decisão final.
 * **Separação de Fatos e Suposições**: Demandas incompletas devem ser devolvidas para esclarecimento antes da alocação de esforço técnico.

@@ -6,7 +6,7 @@
 
 O **RadarSocial Prioriza** é o módulo de triagem operacional, gestão de incidentes e qualificação de demandas do ecossistema **RadarSocial**.
 
-Enquanto o **RadarSocial** atua no nível **estratégico** (governança de programas, controle físico-financeiro com Curva S, remanejamento de rubricas e matriz 5W2H), o **RadarSocial Prioriza** atua no nível **operacional de ponta**: recebe as demandas, ocorrências e solicitações vindas dos polos comunitários e cooperativas, aplicando uma matriz de severidade (P1 a P4) e direcionamento inteligente com supervisão humana (**Human-in-the-Loop**).
+Enquanto o **RadarSocial** atua no nível **estratégico** (governança de programas, controle físico-financeiro com Curva S, remanejamento de rubricas e matriz 5W2H), o **RadarSocial Prioriza** atua no nível **operacional de ponta**: recebe as demandas, ocorrências e solicitações vindas dos polos comunitários e cooperativas, aplicando uma matriz de severidade (P1 a P4) e direcionamento inteligente com supervisão humana.
 
 ---
 
@@ -46,16 +46,16 @@ A severidade é determinada por fatores operacionais concretos (Impacto no Proce
 
 O sistema gerencia chamados reais do portfólio de projetos do ecossistema RadarSocial:
 
-1. **Chamado #2041 — Polo Digital Norte (Inclusão Digital):**
+1. **Chamado #2041: Polo Digital Norte (Inclusão Digital):**
    * Curto-circuito interrompeu 20 computadores a poucas horas de oficina certificadora de 40 jovens.
    * *Enquadramento:* **Fila de Atendimento Imediato (P1)** com SLA de 1h para manutenção emergencial.
-2. **Chamado #2042 — Cooperativa Terra Viva (Agricultura Familiar):**
+2. **Chamado #2042: Cooperativa Terra Viva (Agricultura Familiar):**
    * Cooperativa pede R$ 14.500 após vendaval, sem anexar cotações ou NFs exigidas pelas regras de compras.
    * *Enquadramento:* **Retorno com Orientações** para evitar glosas na prestação de contas.
-3. **Chamado #2043 — Ateliê Comunitário (Empreendedorismo Feminino):**
+3. **Chamado #2043: Ateliê Comunitário (Empreendedorismo Feminino):**
    * Coletivo propõe turma noturna de costura para mães que trabalham de dia. Aulas diurnas normais.
    * *Enquadramento:* **Backlog de Planejamento (P4)** para o planejamento do próximo ciclo semestral.
-4. **Chamado #2044 — Coletivo Gastronomia Solidária (Alimentação Saudável):**
+4. **Chamado #2044: Coletivo Gastronomia Solidária (Alimentação Saudável):**
    * Fiscalização apontou ausência de rotulagem nutricional e alérgenos em 150 potes artesanais.
    * *Enquadramento:* **Atenção Imediata** com acionamento técnico da equipe de nutrição e operações.
 
@@ -65,7 +65,7 @@ O sistema gerencia chamados reais do portfólio de projetos do ecossistema Radar
 
 * **Frontend:** React 19, TypeScript, Vite
 * **Ícones & Design System:** Lucide React (sem emojis avulsos), padrão editorial Slate Mineral & Deep Forest integrado ao design do RadarSocial
-* **Testes & Qualidade:** Vitest com 6 testes automatizados cobrindo a matriz P1–P4, as 4 rotas de triagem e os fatores de processo
+* **Testes & Qualidade:** Vitest com 6 testes automatizados cobrindo a matriz P1 a P4, as 4 rotas de triagem e os fatores de processo
 
 ```bash
 # Instalar dependências
@@ -85,4 +85,4 @@ npm run build
 
 ## 👩‍💼 Competências Aplicadas
 
-Engenharia de Processos • Teoria das Filas e Gestão de Capacidade • Gestão de Compras e Prestação de Contas • Conformidade Regulatória Sanitária (Rotulagem e Alérgenos) • Human-in-the-Loop • Gestão de Incidentes Operacionais
+Engenharia de Processos • Teoria das Filas e Gestão de Capacidade • Gestão de Compras e Prestação de Contas • Conformidade Regulatória Sanitária (Rotulagem e Alérgenos) • Supervisão Humana • Gestão de Incidentes Operacionais
