@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { evaluateDemand, determinePriority, PRIORITY_DEFINITIONS } from "../lib/triageEngine";
+import { evaluateDemand, PRIORITY_DEFINITIONS } from "../lib/triageEngine";
 import { scenarioData } from "../components/ScenarioSelector";
 
 describe("Motor de Triagem Operacional: RadarSocial Prioriza", () => {

@@ -125,7 +125,7 @@ export function determinePriority(
 
 export function buildOperationalFactors(
   form: DemandForm,
-  criticalSignal: boolean
+  _criticalSignal: boolean
 ): OperationalFactor[] {
   const affectedCount = Number(form.affected) || 0;
 
