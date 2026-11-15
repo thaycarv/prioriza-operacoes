@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "lint": "oxlint",
     "test": "vitest run",
     "preview": "vite preview"
   },
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "oxlint": "^1.93.0",
     "vitest": "^4.1.10"
   }
 }
